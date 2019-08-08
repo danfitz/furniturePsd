@@ -1,0 +1,21 @@
+@import "partials/variables";
+@import "partials/setup";
+
+html {
+    background: $lighterBgColor;
+}
+
+main {
+    nav {
+        a {
+            display: block;
+            background: blue;
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+
+@import "partials/_index.scss";
+@import "partials/_blog.scss";
+@import "partials/_contact.scss";

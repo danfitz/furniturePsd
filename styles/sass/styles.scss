@@ -18,64 +18,70 @@ html {
     margin: 0 auto;
 }
 
+img {width: 100%;}
+
 // @@@@@ Font styles
 h1,h2,h3,h4,h5,h6 {
     font-family: $headingFont;
     text-transform: uppercase;
 }
 h1 {
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: 1.2px;
+    font-size: 0.55rem;
+    line-height: 0.6rem;
+    letter-spacing: 0.05rem;
     // Breaks title into two lines
-    width: 9rem;
+    width: 4.5rem;
 }
 h2 {
     font-family: $pageTitleFont;
-    font-size: 68px;
-    line-height: 64px;
+    // font-size: 68px;
+    font-size: 1.7rem;
+    line-height: 1.6rem;
 }
 h3 {
-    font-size: 33px;
-    line-height: 58px;
-    letter-spacing: 2.1px;
+    font-size: 0.825rem;
+    line-height: 1.45rem;
+    letter-spacing: 0.1rem;
 }
 
 p {
     font-family: $contentFont;
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: 2px;
+    font-size: 0.5rem;
+    line-height: 0.8rem;
+    letter-spacing: 0.1rem;
 }
 
 // @@@@@ Button styles
 .button {
     display: inline-block;
     font-family: $headingFont;
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: 1px;
+    font-size: 0.5rem;
+    line-height: 0.8rem;
+    letter-spacing: 0.05rem;
     text-transform: uppercase;
     text-decoration: none;
     color: $lighterBgColor;
     background: $buttonColor;
-    padding: 10px 20px;
+    padding: 0.25rem 0.5rem;
 }
 .button:hover, .button:focus {
-    box-shadow: 0 0 0 5px $accentColor;
+    box-shadow: 0 0 0 0.12rem $accentColor;
 }
 
 // @@@@@ Header nav styles
 .mainNav a {
+    color: $fontColor;
     font-family: $contentFont;
     font-weight: 700;
-    color: $fontColor;
+    font-size: 0.5rem;
+    line-height: 0.725rem;
+    letter-spacing: 0.05rem;
     text-decoration: none;
 }
 
 // @@@@@ Footer styles
 footer {
-    padding: 0.3rem 0;
+    padding: 0.25rem 0;
     background: $fontColor;
     color: $lighterBgColor;
 }

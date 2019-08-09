@@ -15,40 +15,91 @@
 
     <header>
         <div class="wrapper">
-            <nav class="mainNav">
+            <div class="mainNavContainer">
                 <h1>Sanctuary Helpers</h1>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+                <nav class="mainNav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
             <h2>Blog</h2>
         </div>
     </header>
 
     <main>
-        <article></article>
-        <section class="comments">
-            <article class="comment"></article>
-            <article class="comment"></article>
-            <form action="">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Name">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email Address">
-                <label for="comment">Comment</label><textarea name="comment" id="comment" cols="30" rows="10" placeholder="Comment"></textarea>
-            </form>
-        </section>
+        <article class="blogPost">
+            <section class="blogPostContent">
+                <figure class="featuredImage">
+                    <img src="images/blog-post-image.jpg" alt="A cute vintage white and sky blue loveseat that adds the perfect pop to complete a client's living room">
+                </figure>
+    
+                <h3 class="postTitle">Finding the Right Pieces for New Space</h3>
+                <p class="postMetadata">
+                    <span class="postDate">Monday, October 5th, 2019</span> by 
+                    <span class="postAuthor">Saron</span>
+                </p>
+                
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae eligendi voluptates animi dolorem doloribus fuga error reprehenderit adipisci nihil, sit tempora sint officiis beatae accusantium qui rem vel rerum veritatis?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio quis qui ullam eos, mollitia animi corporis dicta eligendi assumenda repellat iusto, fugiat, deserunt saepe ducimus. Quibusdam asperiores ipsa quisquam dolor mollitia sunt perspiciatis quos iusto.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magni enim, earum consequatur blanditiis dolor molestias maiores quidem veniam error debitis odit tempore placeat, rerum a incidunt cupiditate, ipsa aliquid. Accusantium nisi odio nesciunt doloremque fugit nam ipsam recusandae nihil dolore? Necessitatibus cum minus nisi.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos vitae quo nesciunt nam ut quia quibusdam ea obcaecati ducimus nulla quod? Fugiat, odit commodi?</p>
+            </section>
+
+            <section class="comments">
+                <h4>Comments:</h4>
+                <article class="comment">
+                    <img src="images/comment-image.jpg" alt="Davin" class="commentProfile">
+                    <h4 class="commentMetadata">
+                        <span class="commentDate">Tuesday, October 9th, 2019</span> by 
+                        <span class="commentAuthor">Davin</span>
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis ipsam numquam voluptates, repudiandae ducimus cumque voluptas optio omnis perferendis officiis, doloribus inventore libero ex consequatur iusto, minus est totam quia?</p>
+                </article>
+                <article class="comment">
+                    <img src="images/comment-image2.jpg" alt="Lisa" class="commentProfile">
+                    <h4 class="commentMetadata">
+                        <span class="commentDate">Wednesday, October 10th, 2019</span> by
+                        <span class="commentAuthor">Lisa</span>
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iusto odio quis officia dolore dolorem velit praesentium aperiam quidem eos!</p>
+                </article>
+
+                <form class="commentForm" action="">
+                    <label for="name" class="visuallyHidden">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Name">
+                    
+                    <label for="email" class="visuallyHidden">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address">
+
+                    <label for="commentInput" class="visuallyHidden">Comment</label>
+                    <textarea name="commentInput" id="commentInput" cols="30" rows="10" placeholder="Comment"></textarea>
+
+                    <input type="submit" value="Post Comment">
+                </form>
+            </section>
+        </article>
     </main>
     
     <aside>
-        <img src="" alt="">
-        <h4></h4>
-        <p></p>
-        <h4></h4>
-        <p></p>
+        <img src="images/sidebar-image.jpg" alt="Geometric bronze chandelier">
+        <section class="missionStatement">
+            <h4>Our Mission</h4>
+            <p>Nam dapibus nisi vitae elit fringilla rutrum. Aenean sollicitudin, erat a elementum.</p>
+            <p>Find out more.</p>
+        </section>
+        <section class="recentPosts">
+            <h4>Recent Posts</h4>
+            <ul>
+                <li>Donec facilisis tortor ut</li>
+                <li>Augue lacinia at viverra</li>
+                <li>Semper sed sapien metus</li>
+                <li>Scelerisque nec pharetra</li>
+            </ul>
+        </section>
     </aside>
 
     <footer>
@@ -57,6 +108,8 @@
         </div>
     </footer>
 
-</body> <!-- .blog class closing tag -->
+    <!-- Font Awesome CDN here -->
+    <script src="https://kit.fontawesome.com/94656c5317.js"></script>
 
+</body> <!-- .blog class closing tag -->
 </html>

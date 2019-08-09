@@ -1,0 +1,21 @@
+body.index {
+    section.gallery, section.secondaryPosts { background: $darkerBgColor; }
+
+    header {
+        @include addHeaderBg("header-home.jpg");
+        background: url("../images/header-home.jpg");
+        background-size: cover;
+        background-position: center bottom;
+
+        h1 { display: none; }
+        img {
+            position: relative;
+            top: 4.5rem;
+            left: -15%;
+        }
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+}

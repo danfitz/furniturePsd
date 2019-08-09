@@ -1,7 +1,14 @@
+// Import styling resources
 @import "partials/variables";
+@import "partials/mixins";
 @import "partials/setup";
 
 // ===== GENERAL STYLING =====
+
+// For testing purposes
+* {
+    // border: 1px solid red;
+}
 
 // @@@@@ Site-wide styles
 html {
@@ -33,10 +40,13 @@ h1 {
     width: 4.5rem;
 }
 h2 {
+    padding-top: 5rem;
+    margin-top: 0;
     font-family: $pageTitleFont;
     // font-size: 68px;
     font-size: 1.7rem;
     line-height: 1.6rem;
+    max-width: 15rem;
 }
 h3 {
     font-size: 0.825rem;
@@ -68,7 +78,18 @@ p {
     box-shadow: 0 0 0 0.12rem $accentColor;
 }
 
+// @@@@@ ul, li styles
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
 // @@@@@ Header nav styles
+.mainNav {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
 .mainNav a {
     color: $fontColor;
     font-family: $contentFont;
@@ -77,6 +98,70 @@ p {
     line-height: 0.725rem;
     letter-spacing: 0.05rem;
     text-decoration: none;
+}
+
+// @@ Hamburger menu styles & animations
+.mainNav ul {
+    visibility: hidden;
+    opacity: 0;
+}
+
+input[type='checkbox'], .labelText {
+    position: absolute;
+    opacity: 0;
+}
+
+.mainNav label {
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    background: $buttonColor;
+    position: relative;
+    float: right;
+    z-index: 99;
+    cursor: pointer;
+}
+.menuIcon, .menuIcon::before, .menuIcon::after {
+    content: "";
+    display: block;
+    height: 0.1rem;
+    background: $lighterBgColor;
+    position: absolute;
+}
+.menuIcon {
+    width: 60%;
+    top: 0.92rem;
+    left: 0.4rem;
+}
+.menuIcon::before {
+    width: 100%;
+    bottom: 0.4rem;
+}
+.menuIcon::after {
+    width: 100%;
+    top: 0.4rem;
+}
+
+.mainNav input[type="checkbox"]:checked ~ ul {
+    visibility: visible;
+    opacity: 1;
+    padding: 1rem;
+    background: $lighterBgColor;
+    box-shadow: -0.3rem 0.3rem 0 0.05rem $accentColor;
+    transition: all 0.2s ease;
+}
+.mainNav input[type="checkbox"]:checked + label > .menuIcon {
+    background: none;
+}
+.mainNav input[type="checkbox"]:checked + label > .menuIcon::before {
+    transform: rotate(45deg);
+    bottom: 0;
+    transition: all 0.2s ease;
+}
+.mainNav input[type="checkbox"]:checked + label > .menuIcon::after {
+    transform: rotate(-45deg);
+    top: 0;
+    transition: all 0.2s ease;
 }
 
 // @@@@@ Footer styles
@@ -90,6 +175,7 @@ footer p {
     line-height: 0;
 }
 
+// Import page partials
 @import "partials/_index.scss";
 @import "partials/_blog.scss";
 @import "partials/_contact.scss";

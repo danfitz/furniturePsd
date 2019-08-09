@@ -1,0 +1,3 @@
+@mixin addHeaderBg($imageUrl) {
+    background: $lighterBgColor url("../images/#{$imageUrl}");
+}

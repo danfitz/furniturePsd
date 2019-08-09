@@ -1,21 +1,35 @@
 body.index {
-    section.gallery, section.secondaryPosts { background: $darkerBgColor; }
-
+    
     header {
         @include addHeaderBg("header-home.jpg");
         background: url("../images/header-home.jpg");
         background-size: cover;
         background-position: center bottom;
-
+        
         h1 { display: none; }
         img {
-            position: relative;
-            top: 4.5rem;
-            left: -15%;
+            position: absolute;
+            bottom: -12%;
+            left: 0;
+            max-width: 15rem;
         }
     }
+    
+    section { padding: 2.5rem 0; }
+    section.featuredPost { padding-top: 6rem; }
+    section.heroPost { padding-top: 0; }
+    section.gallery, section.secondaryPosts { background: $darkerBgColor; }
+}
 
-    section {
-        padding: 3rem 0;
+@media screen and (min-width: 768px) {
+    body.index {
+        header {
+            background-position: center center;
+
+            img {
+                max-width: 40%;
+            }
+        }
+
     }
 }

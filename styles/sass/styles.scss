@@ -84,7 +84,11 @@ ul {
     padding: 0;
 }
 
-// @@@@@ Header nav styles
+// @@@@@ Header styles
+header {
+    min-height: 100vh;
+    position: relative;
+}
 .mainNav {
     position: fixed;
     top: 1rem;
@@ -173,6 +177,23 @@ footer {
 footer p {
     text-align: center;
     line-height: 0;
+}
+
+@media (min-width: 768px) {
+    .mainNavContainer {
+        display: flex;
+    }
+    h1 {
+        flex-basis: 3 3 50%;
+    }
+    .mainNav {
+        flex-basis: 1 1 50%;
+    }
+    .mainNav label, .mainNav input[type="checkbox"] { display: none; }
+    .mainNav ul {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 // Import page partials

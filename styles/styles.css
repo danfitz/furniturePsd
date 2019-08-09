@@ -251,6 +251,11 @@ ul {
   padding: 0;
 }
 
+header {
+  min-height: 100vh;
+  position: relative;
+}
+
 .mainNav {
   position: fixed;
   top: 1rem;
@@ -354,8 +359,27 @@ footer p {
   line-height: 0;
 }
 
-body.index section.gallery, body.index section.secondaryPosts {
-  background: #e0fddf;
+@media (min-width: 768px) {
+  .mainNavContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  h1 {
+    -ms-flex-preferred-size: 3 3 50%;
+        flex-basis: 3 3 50%;
+  }
+  .mainNav {
+    -ms-flex-preferred-size: 1 1 50%;
+        flex-basis: 1 1 50%;
+  }
+  .mainNav label, .mainNav input[type="checkbox"] {
+    display: none;
+  }
+  .mainNav ul {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 body.index header {
@@ -370,11 +394,33 @@ body.index header h1 {
 }
 
 body.index header img {
-  position: relative;
-  top: 4.5rem;
-  left: -15%;
+  position: absolute;
+  bottom: -12%;
+  left: 0;
+  max-width: 15rem;
 }
 
 body.index section {
-  padding: 3rem 0;
+  padding: 2.5rem 0;
+}
+
+body.index section.featuredPost {
+  padding-top: 6rem;
+}
+
+body.index section.heroPost {
+  padding-top: 0;
+}
+
+body.index section.gallery, body.index section.secondaryPosts {
+  background: #e0fddf;
+}
+
+@media screen and (min-width: 768px) {
+  body.index header {
+    background-position: center center;
+  }
+  body.index header img {
+    max-width: 40%;
+  }
 }

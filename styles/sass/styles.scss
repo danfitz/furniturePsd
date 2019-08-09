@@ -3,17 +3,57 @@
 
 html {
     background: $lighterBgColor;
+    
+    // Sets font size to 20px on most browsers
+    font-size: 125%;
 }
 
-main {
-    nav {
-        a {
-            display: block;
-            background: blue;
-            width: 100px;
-            height: 100px;
-        }
-    }
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $headingFont;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 1.2px;
+}
+h2 {
+    font-family: $pageTitleFont;
+    font-size: 68px;
+    line-height: 64px;
+}
+h3 {
+    font-size: 33px;
+    line-height: 58px;
+    letter-spacing: 2.1px;
+}
+
+p {
+    font-family: $contentFont;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 2px;
+}
+
+.mainNav a {
+    font-family: $contentFont;
+    font-weight: 700;
+    color: $fontColor;
+    text-decoration: none;
+}
+
+.button {
+    display: inline-block;
+    font-family: $headingFont;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $lighterBgColor;
+    background: $buttonColor;
+    padding: 10px 20px;
 }
 
 @import "partials/_index.scss";

@@ -1,14 +1,24 @@
 @import "partials/variables";
 @import "partials/setup";
 
+// ===== GENERAL STYLING =====
+
+// @@@@@ Site-wide styles
 html {
     background: $lighterBgColor;
     
-    // Sets font size to 20px on most browsers
+    // Sets base font size to 20px on most browsers
     font-size: 125%;
 }
 
+// @@@@@ Wrapper
+.wrapper {
+    width: 80%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
 
+// @@@@@ Font styles
 h1,h2,h3,h4,h5,h6 {
     font-family: $headingFont;
     text-transform: uppercase;
@@ -17,6 +27,8 @@ h1 {
     font-size: 22px;
     line-height: 24px;
     letter-spacing: 1.2px;
+    // Breaks title into two lines
+    width: 9rem;
 }
 h2 {
     font-family: $pageTitleFont;
@@ -36,13 +48,7 @@ p {
     letter-spacing: 2px;
 }
 
-.mainNav a {
-    font-family: $contentFont;
-    font-weight: 700;
-    color: $fontColor;
-    text-decoration: none;
-}
-
+// @@@@@ Button styles
 .button {
     display: inline-block;
     font-family: $headingFont;
@@ -54,6 +60,28 @@ p {
     color: $lighterBgColor;
     background: $buttonColor;
     padding: 10px 20px;
+}
+.button:hover, .button:focus {
+    box-shadow: 0 0 0 5px $accentColor;
+}
+
+// @@@@@ Header nav styles
+.mainNav a {
+    font-family: $contentFont;
+    font-weight: 700;
+    color: $fontColor;
+    text-decoration: none;
+}
+
+// @@@@@ Footer styles
+footer {
+    padding: 0.3rem 0;
+    background: $fontColor;
+    color: $lighterBgColor;
+}
+footer p {
+    text-align: center;
+    line-height: 0;
 }
 
 @import "partials/_index.scss";

@@ -6,9 +6,9 @@
 // ===== GENERAL STYLING =====
 
 // For testing purposes
-// * {
-//     // border: 1px solid red;
-// }
+* {
+    // border: 1px solid green;
+}
 
 // @@@@@ Site-wide styles
 html {
@@ -18,6 +18,8 @@ html {
     font-size: 125%;
 }
 
+
+
 // @@@@@ Wrapper
 .wrapper {
     width: 80%;
@@ -25,7 +27,12 @@ html {
     margin: 0 auto;
 }
 
+
+
+// @@@@@ Makes images fit into their containers to prevent overflow
 img {width: 100%;}
+
+
 
 // @@@@@ Font styles
 h1,h2,h3,h4,h5,h6 {
@@ -33,25 +40,27 @@ h1,h2,h3,h4,h5,h6 {
     text-transform: uppercase;
 }
 h1 {
-    margin: 0;
+    margin: 0; // Removes pesky margins affecting top of page
     font-size: 0.55rem;
     line-height: 0.6rem;
     letter-spacing: 0.05rem;
-    // Breaks title into two lines
-    width: 4.5rem;
+    width: 4.5rem; // Breaks title into two lines
 }
 h2 {
-    padding-top: 90px;
+    padding-top: 90px; // Gives breathing room for page title away from nav bar
     margin-top: 0;
     font-family: $pageTitleFont;
     font-size: 1.7rem;
     line-height: 1.6rem;
-    max-width: 15rem;
+    max-width: 15rem; // Breaks title into two lines
 }
 h3 {
     font-size: 0.825rem;
     line-height: 1.45rem;
     letter-spacing: 0.1rem;
+}
+h4 {
+    // Required for blog post page
 }
 
 p {
@@ -60,6 +69,8 @@ p {
     line-height: 0.8rem;
     letter-spacing: 0.1rem;
 }
+
+
 
 // @@@@@ Button styles
 .button {
@@ -76,7 +87,10 @@ p {
 }
 .button:hover, .button:focus {
     box-shadow: 0 0 0 0.12rem $accentColor;
+    transition: box-shadow 0.2s ease;
 }
+
+
 
 // @@@@@ ul, li styles
 ul {
@@ -86,27 +100,29 @@ ul {
     text-transform: uppercase;
 }
 
+
+
 // @@@@@ Header styles
 header {
     min-height: 100vh;
     position: relative;
 }
+
+// Removes default anchor styling in header
 header a {
     color: $fontColor;
     text-decoration: none;
 }
 
 .mainNavContainer {
-    display: flex;
-    padding-top: 1rem;
+    padding-top: 1rem; // Adds breathing room away from top of page
 }
-.logoContainer { flex: 0 0 50%; }
 
 .mainNav {
     position: fixed;
     top: 0.9rem;
     right: 0.9rem;
-    flex: 1 1 50%;
+    z-index: 99; // Keeps navigation at top!
 }
 .mainNav li {
     font-family: $contentFont;
@@ -120,27 +136,43 @@ header a {
     transition: color 0.2s ease;
 }
 
-// @@ Hamburger menu styles & animations
+// Adds yellow underline for currently selected nav item
+.currentPage { position: relative; }
+.currentPage::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 0.05rem;
+    width: 1rem;
+    background: $accentColor;
+}
+
+// @@ Hamburger menu styles & animations (applies up to 768px viewport width)
+
+// Visually hides navigation menu but keeps it accessible
 .mainNav ul {
     visibility: hidden;
     opacity: 0;
 }
-
-input[type='checkbox'], .labelText {
+// Visually hides checkbox and label text but keeps it accessible
+#menuButton, .labelText {
     position: absolute;
     opacity: 0;
 }
 
+// Makes label element into a box
 .mainNav label {
     display: block;
     height: 2rem;
     width: 2rem;
     background: $buttonColor;
-    position: relative;
-    float: right;
+    position: relative; // Required to unlock position: absolute for 3 bars
+    float: right; // pushes box to the right
     z-index: 99;
     cursor: pointer;
 }
+// Creates 3 bars in hamburger menu and positions them
 .menuIcon, .menuIcon::before, .menuIcon::after {
     content: "";
     display: block;
@@ -162,17 +194,20 @@ input[type='checkbox'], .labelText {
     top: 0.4rem;
 }
 
+// Displays nav menu when menu icon inside label is clicked
 .mainNav input[type="checkbox"]:checked ~ ul {
     visibility: visible;
     opacity: 1;
     padding: 1rem;
     background: $lighterBgColor;
     box-shadow: -0.3rem 0.3rem 0 0.05rem $accentColor;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
+// Hides middle hamburger bar
 .mainNav input[type="checkbox"]:checked + label > .menuIcon {
     background: none;
 }
+// Rotates top and bottom hamburger bar to turn them into an X
 .mainNav input[type="checkbox"]:checked + label > .menuIcon::before {
     transform: rotate(45deg);
     bottom: 0;
@@ -183,6 +218,8 @@ input[type='checkbox'], .labelText {
     top: 0;
     transition: all 0.2s ease;
 }
+
+
 
 // @@@@@ Footer styles
 footer {
@@ -195,11 +232,21 @@ footer p {
     line-height: 0;
 }
 
+
+// @@@@@ Breakpoint for tablets and up
 @media (min-width: 768px) {
+    // Base font increase
     html { font-size: 140%; }
 
-    .mainNav { position: static; }
+    // Add flex and have logo and main nav appear side by side
+    .mainNavContainer { display: flex; }
+    .logoContainer { flex: 0 0 50%; }
+    .mainNav { position: static; flex: 1 1 50%; }
+
+    // Remove label and checkbox
     .mainNav label, .mainNav input[type="checkbox"] { display: none; }
+
+    // Make nav items visible by default + flex them side by side
     .mainNav ul {
         visibility: visible;
         opacity: 1;
@@ -207,10 +254,21 @@ footer p {
         flex-direction: row;
         justify-content: flex-end;
     }
-    .mainNav li { margin-left: 2rem; }
+    .mainNav li { margin-left: 2rem; } // Spacing between nav items
+
+    // Fixes issue where when checkbox is checked and you increase viewport width,
+    // the styling transfers over
+    .mainNav input[type="checkbox"]:checked ~ ul {
+        background: none;
+        box-shadow: none;
+        transition: none;
+    }
+
+    .currentPage::after { width: 95%; } // Changes yellow underline width
 }
 
 @media (min-width: 1280px) {
+    // Base font increase
     html { font-size: 150%; }
 }
 

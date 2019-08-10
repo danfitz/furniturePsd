@@ -245,6 +245,10 @@ p {
 .button:hover, .button:focus {
   -webkit-box-shadow: 0 0 0 0.12rem #f8fb05;
           box-shadow: 0 0 0 0.12rem #f8fb05;
+  -webkit-transition: -webkit-box-shadow 0.2s ease;
+  transition: -webkit-box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
 }
 
 ul {
@@ -265,25 +269,14 @@ header a {
 }
 
 .mainNavContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   padding-top: 1rem;
-}
-
-.logoContainer {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
 }
 
 .mainNav {
   position: fixed;
   top: 0.9rem;
   right: 0.9rem;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  z-index: 99;
 }
 
 .mainNav li {
@@ -300,12 +293,26 @@ header a {
   transition: color 0.2s ease;
 }
 
+.currentPage {
+  position: relative;
+}
+
+.currentPage::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 0.05rem;
+  width: 1rem;
+  background: #f8fb05;
+}
+
 .mainNav ul {
   visibility: hidden;
   opacity: 0;
 }
 
-input[type='checkbox'], .labelText {
+#menuButton, .labelText {
   position: absolute;
   opacity: 0;
 }
@@ -352,8 +359,8 @@ input[type='checkbox'], .labelText {
   background: #f5f5f5;
   -webkit-box-shadow: -0.3rem 0.3rem 0 0.05rem #f8fb05;
           box-shadow: -0.3rem 0.3rem 0 0.05rem #f8fb05;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .mainNav input[type="checkbox"]:checked + label > .menuIcon {
@@ -391,8 +398,21 @@ footer p {
   html {
     font-size: 140%;
   }
+  .mainNavContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .logoContainer {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
   .mainNav {
     position: static;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
   }
   .mainNav label, .mainNav input[type="checkbox"] {
     display: none;
@@ -413,6 +433,16 @@ footer p {
   }
   .mainNav li {
     margin-left: 2rem;
+  }
+  .mainNav input[type="checkbox"]:checked ~ ul {
+    background: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transition: none;
+    transition: none;
+  }
+  .currentPage::after {
+    width: 95%;
   }
 }
 

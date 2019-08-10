@@ -3,3 +3,22 @@
     background-size: cover;
     background-position: center bottom;
 }
+
+@mixin addPseudoShadow($direction: "left", $depth: 2vw) {
+    content: "";
+    display: block;
+    width: 97%;
+    height: 97%;
+    position: absolute;
+    top: $depth;
+    background: $accentColor;
+    
+    @if $direction == "left" {
+        left: -$depth;
+    }
+    @else if $direction == "right" {
+        right: -$depth;
+    }
+    
+
+}

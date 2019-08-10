@@ -1,5 +1,11 @@
 body.index {
+    // General styling for sections
+    section { padding: 2.5rem 0; }
+    section.featuredPost { padding-top: 6rem; }
+    section.heroPost { padding-top: 0; }
+    section.gallery, section.secondaryPosts { background: $darkerBgColor; }
     
+    // Header section
     header {
         @include addHeaderBg("../images/header-home.jpg");
         
@@ -12,21 +18,73 @@ body.index {
         }
     }
     
-    section { padding: 2.5rem 0; }
-    section.featuredPost { padding-top: 6rem; }
-    section.heroPost { padding-top: 0; }
-    section.gallery, section.secondaryPosts { background: $darkerBgColor; }
-
-    .featuredPostImage {
-        padding-top: 2rem;
-        position: relative;
-        right: -12.5%;
-        max-width: 20rem;
+    // Featured post section
+    section.featuredPost {
+        .pseudoShadowContainer {
+            position: relative;
+            margin-top: 2rem;
+            right: -52.5%;
+            // width: 80%;
+            // max-width: 16rem;
+            width: 60%;
+        }
+        .featuredPostImage { position: relative; z-index: 2; }
+        .pseudoShadowContainer::before { @include addPseudoShadow("left"); }
     }
+
+    // Gallery section
+    section.gallery {
+        ul {
+            display: flex;
+            overflow-x: scroll; // Creates a kind of slider experience with pure CSS
+        }
+        li { min-width: 15rem; } // Makes images big enough for slider
+        li:nth-child(2) { margin: 0 1rem; }
+    }
+
+    // Sub nav section
+    section.subNavSection {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        li { display: flex; }
+
+        // Adds yellow circular background to icons
+        i {
+            margin-right: 1rem;
+            padding: 0.4rem;
+            background: $accentColor;
+            border-radius: 180px;
+            height: 1.7rem;
+            font-size: 0.8rem;
+        }
+        h3 { margin-top: 0.2rem; }
+    }
+
+    // Secondary posts section
+    section.secondaryPosts {
+        .secondaryPost:nth-child(even) { text-align: right; }
+        
+        .pseudoShadowContainer {
+            position: relative;
+            margin: 2rem 0;
+            width: 80%;
+        }
+        .secondaryPostImage { position: relative; z-index: 2; }
+        .secondaryPost:nth-child(odd) .pseudoShadowContainer { right: 12.5%; }
+        .secondaryPost:nth-child(even) .pseudoShadowContainer { right: -32.5%; }
+        .secondaryPost:nth-child(odd) .pseudoShadowContainer::before { @include addPseudoShadow("right", 2vw); }
+        .secondaryPost:nth-child(even) .pseudoShadowContainer::before { @include addPseudoShadow("left", 2vw); }
+    }
+
+    // Hero post section
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
     body.index {
+        // Header breakpoint
         header {
             background-position: center center;
 
@@ -40,5 +98,56 @@ body.index {
             }
         }
 
+        // Featured post breakpoint
+        section.featuredPost .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            .pseudoShadowContainer {
+                // width: 60%;
+                // max-width: 100%;
+                // right: 0;
+                right: -12.5%;
+            }
+        }
+
+        // Sub nav breakpoint
+        section.subNavSection {
+            li { flex: 0 0 48%; }
+        }
+
+        // Secondary posts breakpoint
+        section.secondaryPosts {
+            .secondaryPost {
+                display: flex;
+            }
+            .secondaryPostContent, .pseudoShadowContainer { width: 49%; }
+            .pseudoShadowContainer { right: 0; width: 49%; }
+        }
+    }
+}
+
+@media (min-width: 940px) {
+    body.index {
+        // Featured post breakpoint
+        section.featuredPost .wrapper {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+    
+            .featuredPostContent { width: 60%; }
+            .pseudoShadowContainer { width: 30%; right: 0; }
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    body.index {
+        // Gallery breakpoint
+        section.gallery {
+            ul { justify-content: space-between; }
+            li { min-width: auto; }
+        }
     }
 }

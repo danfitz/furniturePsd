@@ -83,7 +83,7 @@ p {
     text-decoration: none;
     color: $lighterBgColor;
     background: $buttonColor;
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.5rem 0.3rem;
 }
 .button:hover, .button:focus {
     box-shadow: 0 0 0 0.12rem $accentColor;
@@ -236,7 +236,7 @@ footer p {
 // @@@@@ Breakpoint for tablets and up
 @media (min-width: 768px) {
     // Base font increase
-    html { font-size: 140%; }
+    html { font-size: 150%; }
 
     // Add flex and have logo and main nav appear side by side
     .mainNavContainer { display: flex; }
@@ -269,7 +269,7 @@ footer p {
 
 @media (min-width: 1280px) {
     // Base font increase
-    html { font-size: 150%; }
+    html { font-size: 175%; }
 }
 
 // Import page partials

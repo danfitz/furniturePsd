@@ -1,15 +1,12 @@
 body.index {
     
     header {
-        @include addHeaderBg("header-home.jpg");
-        background: url("../images/header-home.jpg");
-        background-size: cover;
-        background-position: center bottom;
+        @include addHeaderBg("../images/header-home.jpg");
         
         h1 { display: none; }
         img {
             position: absolute;
-            bottom: -12%;
+            bottom: -15%;
             left: 0;
             max-width: 15rem;
         }
@@ -19,6 +16,13 @@ body.index {
     section.featuredPost { padding-top: 6rem; }
     section.heroPost { padding-top: 0; }
     section.gallery, section.secondaryPosts { background: $darkerBgColor; }
+
+    .featuredPostImage {
+        padding-top: 2rem;
+        position: relative;
+        right: -12.5%;
+        max-width: 20rem;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -26,8 +30,13 @@ body.index {
         header {
             background-position: center center;
 
+            h2 {
+                padding-top: 50px;
+                margin-left: 5rem;
+            }
             img {
-                max-width: 40%;
+                width: 40%;
+                max-width: 30rem;
             }
         }
 

@@ -6,9 +6,9 @@
 // ===== GENERAL STYLING =====
 
 // For testing purposes
-* {
-    // border: 1px solid red;
-}
+// * {
+//     // border: 1px solid red;
+// }
 
 // @@@@@ Site-wide styles
 html {
@@ -33,6 +33,7 @@ h1,h2,h3,h4,h5,h6 {
     text-transform: uppercase;
 }
 h1 {
+    margin: 0;
     font-size: 0.55rem;
     line-height: 0.6rem;
     letter-spacing: 0.05rem;
@@ -40,10 +41,9 @@ h1 {
     width: 4.5rem;
 }
 h2 {
-    padding-top: 5rem;
+    padding-top: 90px;
     margin-top: 0;
     font-family: $pageTitleFont;
-    // font-size: 68px;
     font-size: 1.7rem;
     line-height: 1.6rem;
     max-width: 15rem;
@@ -80,8 +80,10 @@ p {
 
 // @@@@@ ul, li styles
 ul {
-    list-style-type: none;
+    margin: 0;
     padding: 0;
+    list-style-type: none;
+    text-transform: uppercase;
 }
 
 // @@@@@ Header styles
@@ -89,19 +91,33 @@ header {
     min-height: 100vh;
     position: relative;
 }
+header a {
+    color: $fontColor;
+    text-decoration: none;
+}
+
+.mainNavContainer {
+    display: flex;
+    padding-top: 1rem;
+}
+.logoContainer { flex: 0 0 50%; }
+
 .mainNav {
     position: fixed;
-    top: 1rem;
-    right: 1rem;
+    top: 0.9rem;
+    right: 0.9rem;
+    flex: 1 1 50%;
 }
-.mainNav a {
-    color: $fontColor;
+.mainNav li {
     font-family: $contentFont;
     font-weight: 700;
     font-size: 0.5rem;
     line-height: 0.725rem;
     letter-spacing: 0.05rem;
-    text-decoration: none;
+}
+.mainNav li a:hover, .mainNav li a:focus {
+    color: $accentColor;
+    transition: color 0.2s ease;
 }
 
 // @@ Hamburger menu styles & animations
@@ -180,20 +196,22 @@ footer p {
 }
 
 @media (min-width: 768px) {
-    .mainNavContainer {
-        display: flex;
-    }
-    h1 {
-        flex-basis: 3 3 50%;
-    }
-    .mainNav {
-        flex-basis: 1 1 50%;
-    }
+    html { font-size: 140%; }
+
+    .mainNav { position: static; }
     .mainNav label, .mainNav input[type="checkbox"] { display: none; }
     .mainNav ul {
         visibility: visible;
         opacity: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
+    .mainNav li { margin-left: 2rem; }
+}
+
+@media (min-width: 1280px) {
+    html { font-size: 150%; }
 }
 
 // Import page partials

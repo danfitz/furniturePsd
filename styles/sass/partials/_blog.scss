@@ -1,0 +1,5 @@
+body.blog {
+    header {
+        @include addHeaderBg("../images/blog-image.jpg");
+    }
+}

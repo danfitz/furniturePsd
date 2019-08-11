@@ -4,20 +4,20 @@
     background-position: center bottom;
 }
 
-@mixin addPseudoShadow($direction: "left", $depth: 2vw) {
+@mixin addPseudoShadow($direction: "left", $distance: 2vw) {
     content: "";
     display: block;
     width: 97%;
     height: 97%;
     position: absolute;
-    top: $depth;
+    top: $distance;
     background: $accentColor;
     
     @if $direction == "left" {
-        left: -$depth;
+        left: -$distance;
     }
     @else if $direction == "right" {
-        right: -$depth;
+        right: -$distance;
     }
     
 

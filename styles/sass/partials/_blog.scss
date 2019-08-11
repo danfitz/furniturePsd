@@ -52,22 +52,47 @@ body.blog {
     
     // Comments section
     section.comments {
-        padding-top: 3rem;
+        padding-top: 1rem;
         margin-bottom: -4rem; // Corrects for article being pushed up
 
         // Special wrapper
         width: 80%;
-        margin: 0 auto;
+        margin-left: 10%;
+        margin-right: 10%;
 
         .comment {
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
         }
+        .comment:not(:last-of-type) { margin-bottom: 2rem; }
+        .comment:last-of-type { margin-bottom: 1rem; }
         .commentProfile {
-            width: 100px;
-            margin: 0.2rem 0.5rem 0;
+            width: 4rem;
+            margin-top: 0.2rem;
         }
-        .commentMetadata { margin-top: 0; }
+        .commentMetadata {
+            // margin-top: 0;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        // Comment form
+        input[type="email"], input[type="text"], textarea {
+            background: none;
+            border: none;
+            border-bottom: 0.05rem solid $buttonColor;
+        }
+        input[type="email"], input[type="text"] {
+            width: 46%;
+        }
+        input[type="email"] { margin-left: 6%; }
+        textarea {
+            width: 100%;
+            border: 0.05rem solid $buttonColor;
+        }
+        input[type="submit"] {
+            width: 100%;
+        }
 
     }
 }
@@ -89,6 +114,25 @@ body.blog {
         section.blogPostContent {
             max-width: 100%;
             margin-right: 0;
+        }
+
+        // Comments breakpoint
+        section.comments {
+            padding-left: 10%;
+            margin-right: 0;
+            margin-left: 0;
+            width: 100%;
+
+            .comment {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .commentProfile {
+                flex: 0 0 3rem;
+                margin-right: 1rem;
+            }
+            .commentContent { flex: 1 1 auto; }
+            .commentMetadata { margin-top: 0; }
         }
     }
 

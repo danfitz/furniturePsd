@@ -255,7 +255,6 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  text-transform: uppercase;
 }
 
 header {
@@ -285,6 +284,7 @@ header a {
   font-size: 0.5rem;
   line-height: 0.725rem;
   letter-spacing: 0.05rem;
+  text-transform: uppercase;
 }
 
 .mainNav li a:hover, .mainNav li a:focus {
@@ -460,10 +460,6 @@ body.index section.featuredPost {
   padding-top: 6rem;
 }
 
-body.index section.heroPost {
-  padding-top: 0;
-}
-
 body.index section.gallery, body.index section.secondaryPosts {
   background: #e0fddf;
 }
@@ -550,7 +546,7 @@ body.index section.subNavSection i {
 }
 
 body.index section.subNavSection h3 {
-  margin-top: 0.2rem;
+  margin: 0.2rem 0 0;
 }
 
 body.index section.secondaryPosts .secondaryPost:nth-child(even) {
@@ -598,6 +594,35 @@ body.index section.secondaryPosts .secondaryPost:nth-child(even) .pseudoShadowCo
   left: -2vw;
 }
 
+body.index section.heroPost {
+  padding: 0;
+}
+
+body.index section.heroPost .heroPostContent {
+  padding: 2.5rem 0;
+}
+
+body.index section.heroPost .heroPostContent .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body.index section.heroPost h3 {
+  margin: 0;
+}
+
+body.index section.heroPost p {
+  margin-top: 0;
+}
+
 @media (min-width: 768px) {
   body.index header {
     background-position: center center;
@@ -630,17 +655,40 @@ body.index section.secondaryPosts .secondaryPost:nth-child(even) .pseudoShadowCo
         -ms-flex: 0 0 48%;
             flex: 0 0 48%;
   }
+  body.index section.secondaryPosts {
+    padding: 0;
+  }
   body.index section.secondaryPosts .secondaryPost {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  body.index section.secondaryPosts .secondaryPostContent, body.index section.secondaryPosts .pseudoShadowContainer {
-    width: 49%;
+  body.index section.secondaryPosts .secondaryPost:nth-child(odd) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  body.index section.secondaryPosts .secondaryPostContent {
+    width: 50%;
   }
   body.index section.secondaryPosts .pseudoShadowContainer {
-    right: 0;
-    width: 49%;
+    width: 60%;
+  }
+  body.index section.secondaryPosts .secondaryPost:nth-child(odd) .pseudoShadowContainer {
+    right: 12.5%;
+  }
+  body.index section.secondaryPosts .secondaryPost:nth-child(even) .pseudoShadowContainer {
+    right: -12.5%;
+  }
+  body.index section.heroPost .heroPostContent {
+    padding: 5rem 0;
   }
 }
 
@@ -663,6 +711,16 @@ body.index section.secondaryPosts .secondaryPost:nth-child(even) .pseudoShadowCo
   body.index section.featuredPost .wrapper .pseudoShadowContainer {
     width: 30%;
     right: 0;
+    margin-top: 0;
+  }
+  body.index section.secondaryPosts .pseudoShadowContainer {
+    margin: 0;
+  }
+  body.index section.secondaryPosts .secondaryPost:first-child .pseudoShadowContainer {
+    bottom: 1rem;
+  }
+  body.index section.secondaryPosts .secondaryPost:last-child .pseudoShadowContainer {
+    top: 2rem;
   }
 }
 

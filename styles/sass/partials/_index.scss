@@ -2,7 +2,6 @@ body.index {
     // General styling for sections
     section { padding: 2.5rem 0; }
     section.featuredPost { padding-top: 6rem; }
-    section.heroPost { padding-top: 0; }
     section.gallery, section.secondaryPosts { background: $darkerBgColor; }
     
     // Header section
@@ -60,7 +59,7 @@ body.index {
             height: 1.7rem;
             font-size: 0.8rem;
         }
-        h3 { margin-top: 0.2rem; }
+        h3 { margin: 0.2rem 0 0; }
     }
 
     // Secondary posts section
@@ -80,6 +79,17 @@ body.index {
     }
 
     // Hero post section
+    section.heroPost {
+        padding: 0;
+        .heroPostContent { padding: 2.5rem 0; }
+        .heroPostContent .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h3 { margin: 0; }
+        p { margin-top: 0; }
+    }
 }
 
 @media (min-width: 768px) {
@@ -119,11 +129,23 @@ body.index {
 
         // Secondary posts breakpoint
         section.secondaryPosts {
+            padding: 0;
+
             .secondaryPost {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
-            .secondaryPostContent, .pseudoShadowContainer { width: 49%; }
-            .pseudoShadowContainer { right: 0; width: 49%; }
+            .secondaryPost:nth-child(odd) { flex-direction: row-reverse; }
+            .secondaryPostContent { width: 50%; }
+            .pseudoShadowContainer { width: 60%; }
+            .secondaryPost:nth-child(odd) .pseudoShadowContainer { right: 12.5%; }
+            .secondaryPost:nth-child(even) .pseudoShadowContainer { right: -12.5%; }
+        }
+
+        // Hero post breakpoint
+        section.heroPost {
+            .heroPostContent { padding: 5rem 0; }
         }
     }
 }
@@ -135,9 +157,16 @@ body.index {
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-    
+            
             .featuredPostContent { width: 60%; }
-            .pseudoShadowContainer { width: 30%; right: 0; }
+            .pseudoShadowContainer { width: 30%; right: 0; margin-top: 0; }
+        }
+        
+        // Secondary posts breakpoint
+        section.secondaryPosts {
+            .pseudoShadowContainer { margin: 0; }
+            .secondaryPost:first-child .pseudoShadowContainer { bottom: 1rem; }
+            .secondaryPost:last-child .pseudoShadowContainer { top: 2rem; }
         }
     }
 }

@@ -2,29 +2,94 @@ body.blog {
     // Header section
     header { @include addHeaderBg("../images/blog-image.jpg"); }
 
+    // Background for main
+    main { background: $darkerBgColor; }
+    
+    // Pushes blog post up
+    .blogPost {
+        position: relative;
+        top: -7rem;
+    }
+    
     // Blog post section
     section.blogPostContent {
-        position: relative;
-        z-index: 2;
+        max-width: 30rem; // Sets limit, so the content doesn't stretch too much
+        background: $lighterBgColor;
 
-        .wrapper::before {
-            content: "";
-            display: block;
-            height: 0.3rem;
-            width: 80%;
-            position: absolute;
-            bottom: -0.3rem;
-            background: $accentColor;
+        // Creates breathing room for content
+        padding-left: 10%;
+        padding-right: 1rem;
+        margin-right: calc(10% - 1rem);
+        
+        // Styling to create unique yellow border around content
+        border-right: 0.2rem solid $accentColor;
+        border-bottom: 0.2rem solid $accentColor;
+        .featuredImage {
+            position: relative;
+            left: calc(-12.5% - 0.2rem);
+            bottom: 0.6rem;
+            width: calc(112.5% + 0.8rem);
         }
-        .wrapper::after {
-            content: "";
-            display: block;
-            width: 0.3rem;
-            height: 100%;
-            position: absolute;
-            right: 10%;
-            top: 0;
-            background: $accentColor;
+        .featuredImage img { position: relative; z-index: 2; }
+        .featuredImage::before { @include addPseudoShadow("right", 0.6rem); }
+
+        // Styling for text
+        .postTitle { margin-bottom: 0; }
+        .postMetadata { margin-top: 0.5rem; font-style: italic; }
+        .postAuthor { font-weight: 700; }
+        p { margin: 1rem 0; }
+    }
+    // section.blogPostContent::before {
+    //     content: "";
+    //     display: block;
+    //     position: absolute;
+    //     width: 12.5%;
+    //     height: 0.2rem;
+    //     background: $accentColor;
+    //     bottom: -0.2rem;
+    //     left: -12.5%;
+    // }
+    
+    // Comments section
+    section.comments {
+        padding-top: 3rem;
+        margin-bottom: -4rem; // Corrects for article being pushed up
+
+        // Special wrapper
+        width: 80%;
+        margin: 0 auto;
+
+        .comment {
+            display: flex;
+            align-items: flex-start;
+        }
+        .commentProfile {
+            width: 100px;
+            margin: 0.2rem 0.5rem 0;
+        }
+        .commentMetadata { margin-top: 0; }
+
+    }
+}
+
+@media (min-width: 768px) {
+    body.blog {
+        // Header breakpoint
+        header { background-position: center center; }
+    
+        // Main breakpoint
+        main {
+            display: flex;
+            justify-content: space-between;
+        }
+        article { flex: 0 0 60%; }
+        aside { flex: 0 0 25%; }
+    
+        // Blog post breakpoint
+        section.blogPostContent {
+            max-width: 100%;
+            margin-right: 0;
         }
     }
+
 }

@@ -308,8 +308,11 @@ header a {
 }
 
 .mainNav ul {
+  padding: 3rem 1rem 1rem;
   visibility: hidden;
   opacity: 0;
+  position: relative;
+  z-index: 98;
 }
 
 #menuButton, .labelText {
@@ -355,7 +358,6 @@ header a {
 .mainNav input[type="checkbox"]:checked ~ ul {
   visibility: visible;
   opacity: 1;
-  padding: 1rem;
   background: #f5f5f5;
   -webkit-box-shadow: -0.3rem 0.3rem 0 0.05rem #f8fb05;
           box-shadow: -0.3rem 0.3rem 0 0.05rem #f8fb05;
@@ -412,19 +414,20 @@ footer p {
   }
   .logoContainer {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
   }
   .mainNav {
     position: static;
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 50%;
-            flex: 1 1 50%;
+        -ms-flex: 1 0 50%;
+            flex: 1 0 50%;
   }
   .mainNav label, .mainNav input[type="checkbox"] {
     display: none;
   }
   .mainNav ul {
+    padding: 0;
     visibility: visible;
     opacity: 1;
     display: -webkit-box;
@@ -503,12 +506,12 @@ body.index section.featuredPost .featuredPostImage {
 body.index section.featuredPost .pseudoShadowContainer::before {
   content: "";
   display: block;
-  width: 97%;
-  height: 97%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 2vw;
+  top: 1.5vw;
   background: #f8fb05;
-  left: -2vw;
+  left: -1.5vw;
 }
 
 body.index section.gallery ul {
@@ -541,14 +544,16 @@ body.index section.subNavSection li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 body.index section.subNavSection i {
   margin-right: 1rem;
-  padding: 0.4rem;
+  padding: 0.5rem;
   background: #f8fb05;
   border-radius: 180px;
-  height: 1.7rem;
   font-size: 0.8rem;
 }
 
@@ -582,23 +587,23 @@ body.index section.secondaryPosts .secondaryPost:nth-child(even) .pseudoShadowCo
 body.index section.secondaryPosts .secondaryPost:nth-child(odd) .pseudoShadowContainer::before {
   content: "";
   display: block;
-  width: 97%;
-  height: 97%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 2vw;
+  top: 1.5vw;
   background: #f8fb05;
-  right: -2vw;
+  right: -1.5vw;
 }
 
 body.index section.secondaryPosts .secondaryPost:nth-child(even) .pseudoShadowContainer::before {
   content: "";
   display: block;
-  width: 97%;
-  height: 97%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 2vw;
+  top: 1.5vw;
   background: #f8fb05;
-  left: -2vw;
+  left: -1.5vw;
 }
 
 body.index section.heroPost {
@@ -748,30 +753,116 @@ body.blog header {
   background-position: center bottom;
 }
 
+body.blog main {
+  background: #e0fddf;
+}
+
+body.blog .blogPost {
+  position: relative;
+  top: -7rem;
+}
+
 body.blog section.blogPostContent {
+  max-width: 30rem;
+  background: #f5f5f5;
+  padding-left: 10%;
+  padding-right: 1rem;
+  margin-right: calc(10% - 1rem);
+  border-right: 0.2rem solid #f8fb05;
+  border-bottom: 0.2rem solid #f8fb05;
+}
+
+body.blog section.blogPostContent .featuredImage {
+  position: relative;
+  left: calc(-12.5% - 0.2rem);
+  bottom: 0.6rem;
+  width: calc(112.5% + 0.8rem);
+}
+
+body.blog section.blogPostContent .featuredImage img {
   position: relative;
   z-index: 2;
 }
 
-body.blog section.blogPostContent .wrapper::before {
+body.blog section.blogPostContent .featuredImage::before {
   content: "";
   display: block;
-  height: 0.3rem;
-  width: 80%;
-  position: absolute;
-  bottom: -0.3rem;
-  background: #f8fb05;
-}
-
-body.blog section.blogPostContent .wrapper::after {
-  content: "";
-  display: block;
-  width: 0.3rem;
+  width: 100%;
   height: 100%;
   position: absolute;
-  right: 10%;
-  top: 0;
+  top: 0.6rem;
   background: #f8fb05;
+  right: -0.6rem;
+}
+
+body.blog section.blogPostContent .postTitle {
+  margin-bottom: 0;
+}
+
+body.blog section.blogPostContent .postMetadata {
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+body.blog section.blogPostContent .postAuthor {
+  font-weight: 700;
+}
+
+body.blog section.blogPostContent p {
+  margin: 1rem 0;
+}
+
+body.blog section.comments {
+  padding-top: 3rem;
+  margin-bottom: -4rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+body.blog section.comments .comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body.blog section.comments .commentProfile {
+  width: 100px;
+  margin: 0.2rem 0.5rem 0;
+}
+
+body.blog section.comments .commentMetadata {
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  body.blog header {
+    background-position: center center;
+  }
+  body.blog main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  body.blog article {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+  }
+  body.blog aside {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+  }
+  body.blog section.blogPostContent {
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
 
 body.contact header {

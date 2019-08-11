@@ -152,8 +152,11 @@ header a {
 
 // Visually hides navigation menu but keeps it accessible
 .mainNav ul {
+    padding: 3rem 1rem 1rem;
     visibility: hidden;
     opacity: 0;
+    position: relative;
+    z-index: 98;
 }
 // Visually hides checkbox and label text but keeps it accessible
 #menuButton, .labelText {
@@ -198,7 +201,6 @@ header a {
 .mainNav input[type="checkbox"]:checked ~ ul {
     visibility: visible;
     opacity: 1;
-    padding: 1rem;
     background: $lighterBgColor;
     box-shadow: -0.3rem 0.3rem 0 0.05rem $accentColor;
     transition: all 0.5s ease;
@@ -232,12 +234,16 @@ footer p {
     line-height: 0;
 }
 
+
+
+// @@@@@ Breakpoint for larger phones
 @media (min-width: 480px) {
     h2 {
         font-size: 2rem;
         line-height: 1.9rem;
     }
 }
+
 
 
 // @@@@@ Breakpoint for tablets and up
@@ -247,14 +253,15 @@ footer p {
 
     // Add flex and have logo and main nav appear side by side
     .mainNavContainer { display: flex; }
-    .logoContainer { flex: 0 0 50%; }
-    .mainNav { position: static; flex: 1 1 50%; }
+    .logoContainer { flex: 0 1 50%; }
+    .mainNav { position: static; flex: 1 0 50%; }
 
     // Remove label and checkbox
     .mainNav label, .mainNav input[type="checkbox"] { display: none; }
 
     // Make nav items visible by default + flex them side by side
     .mainNav ul {
+        padding: 0;
         visibility: visible;
         opacity: 1;
         display: flex;

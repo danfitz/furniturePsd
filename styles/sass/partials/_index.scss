@@ -28,7 +28,7 @@ body.index {
             width: 60%;
         }
         .featuredPostImage { position: relative; z-index: 2; }
-        .pseudoShadowContainer::before { @include addPseudoShadow("left"); }
+        .pseudoShadowContainer::before { @include addPseudoShadow("left", 1.5vw); }
     }
 
     // Gallery section
@@ -48,15 +48,17 @@ body.index {
             flex-wrap: wrap;
             justify-content: space-between;
         }
-        li { display: flex; }
+        li {
+            display: flex;
+            align-items: flex-start;
+        }
 
         // Adds yellow circular background to icons
         i {
             margin-right: 1rem;
-            padding: 0.4rem;
+            padding: 0.5rem;
             background: $accentColor;
             border-radius: 180px;
-            height: 1.7rem;
             font-size: 0.8rem;
         }
         h3 { margin: 0.2rem 0 0; }
@@ -74,8 +76,8 @@ body.index {
         .secondaryPostImage { position: relative; z-index: 2; }
         .secondaryPost:nth-child(odd) .pseudoShadowContainer { right: 12.5%; }
         .secondaryPost:nth-child(even) .pseudoShadowContainer { right: -32.5%; }
-        .secondaryPost:nth-child(odd) .pseudoShadowContainer::before { @include addPseudoShadow("right", 2vw); }
-        .secondaryPost:nth-child(even) .pseudoShadowContainer::before { @include addPseudoShadow("left", 2vw); }
+        .secondaryPost:nth-child(odd) .pseudoShadowContainer::before { @include addPseudoShadow("right", 1.5vw); }
+        .secondaryPost:nth-child(even) .pseudoShadowContainer::before { @include addPseudoShadow("left", 1.5vw); }
     }
 
     // Hero post section

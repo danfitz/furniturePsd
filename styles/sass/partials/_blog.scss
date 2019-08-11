@@ -75,25 +75,6 @@ body.blog {
             text-transform: uppercase;
             font-weight: 700;
         }
-
-        // Comment form
-        input[type="email"], input[type="text"], textarea {
-            background: none;
-            border: none;
-            border-bottom: 0.05rem solid $buttonColor;
-        }
-        input[type="email"], input[type="text"] {
-            width: 46%;
-        }
-        input[type="email"] { margin-left: 6%; }
-        textarea {
-            width: 100%;
-            border: 0.05rem solid $buttonColor;
-        }
-        input[type="submit"] {
-            width: 100%;
-        }
-
     }
 }
 

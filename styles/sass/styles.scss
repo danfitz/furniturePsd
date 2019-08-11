@@ -73,7 +73,8 @@ p {
 
 
 // @@@@@ Button styles
-.button {
+.button, input[type="submit"] {
+    padding: 0.35rem 0.5rem 0.3rem;
     display: inline-block;
     font-family: $headingFont;
     font-size: 0.6rem;
@@ -83,11 +84,51 @@ p {
     text-decoration: none;
     color: $lighterBgColor;
     background: $buttonColor;
-    padding: 0.35rem 0.5rem 0.3rem;
+    border: none;
 }
-.button:hover, .button:focus {
+.button:hover, .button:focus, input[type="submit"]:hover, input[type="submit"]:focus {
     box-shadow: 0 0 0 0.12rem $accentColor;
     transition: box-shadow 0.2s ease;
+}
+
+
+
+// @@@@@ Form styles
+input, textarea { width: 100%; }
+
+// Removes default styling and adds custom styling
+input[type="text"], input[type="email"], textarea {
+    margin-bottom: 2rem;
+    padding-top: 0.2rem;
+    background: none;
+    border: none;
+    border-bottom: 0.1rem solid $buttonColor;
+    color: $fontColor;
+    font-family: $contentFont;
+    font-size: 0.6rem;
+    line-height: 0.95rem;
+    letter-spacing: 0.05rem;
+}
+// Adds styling to placeholder
+input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
+    opacity: 1;
+    text-transform: uppercase;
+}
+// Adds focus
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    box-shadow: 0 0 0 0.12rem $accentColor;
+    transition: box-shadow 0.2s ease;
+    border: none;
+}
+// Adds special styling for text and email inputs
+input[type="text"], input[type="email"] {
+    padding: 0 1.2rem 0.7rem;
+}
+// Adds special spacing for textarea
+textarea {
+    padding: 1.2rem;
+    border: 0.1rem solid $buttonColor;
+    resize: none; // Removes resize option
 }
 
 
@@ -279,6 +320,13 @@ footer p {
     }
 
     .currentPage::after { width: 95%; } // Changes yellow underline width
+
+    // Places name and email address inputs side by side
+    input[type="text"], input[type="email"] {
+        width: 46%;
+    }
+    input[type="text"] { float: left; }
+    input[type="email"] { float: right; }
 }
 
 @media (min-width: 1280px) {

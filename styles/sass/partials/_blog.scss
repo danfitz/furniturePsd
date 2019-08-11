@@ -1,9 +1,10 @@
 body.blog {
+    // Default background colour
+    background: $darkerBgColor;
+    
     // Header section
     header { @include addHeaderBg("../images/blog-image.jpg"); }
 
-    // Background for main
-    main { background: $darkerBgColor; }
     
     // Pushes blog post up
     .blogPost {
@@ -39,16 +40,6 @@ body.blog {
         .postAuthor { font-weight: 700; }
         p { margin: 1rem 0; }
     }
-    // section.blogPostContent::before {
-    //     content: "";
-    //     display: block;
-    //     position: absolute;
-    //     width: 12.5%;
-    //     height: 0.2rem;
-    //     background: $accentColor;
-    //     bottom: -0.2rem;
-    //     left: -12.5%;
-    // }
     
     // Comments section
     section.comments {
@@ -76,6 +67,30 @@ body.blog {
             font-weight: 700;
         }
     }
+
+    // Aside section
+    aside {
+        position: relative;
+        background: $accentColor;
+        width: 60%;
+        margin: 0 20% 3rem;
+        border-bottom: 0.8rem solid $accentColor;
+    }
+    aside::before { @include addPseudoShadow("left", 0.8rem); }
+    
+    .asideImage, .missionStatement, .recentPosts {
+        position: relative;
+        z-index: 2;
+    }
+
+    // Font styling
+    .missionStatement, .recentPosts { padding-right: 0.5rem; }
+    h4 { margin: 0.7rem 0; }
+    .recentPosts ul {
+        list-style-type: disc;
+        margin-left: 1.4rem;
+    }
+    .recentPosts p { margin: 0; }
 }
 
 @media (min-width: 768px) {
@@ -87,6 +102,7 @@ body.blog {
         main {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
         }
         article { flex: 0 0 60%; }
         aside { flex: 0 0 25%; }
@@ -115,6 +131,13 @@ body.blog {
             .commentContent { flex: 1 1 auto; }
             .commentMetadata { margin-top: 0; }
         }
+
+        // Aside breakpoint
+        aside {
+            width: auto;
+            margin: 0;
+        }
+        .missionStatement, .recentPosts { padding-right: 1rem; }
     }
 
 }

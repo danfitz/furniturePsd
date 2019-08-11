@@ -1029,8 +1029,79 @@ body.blog .recentPosts p {
   }
 }
 
+body.contact {
+  background: #e0fddf;
+}
+
 body.contact header {
   background: #f5f5f5 url("../images/contact-image.jpg");
   background-size: cover;
   background-position: center bottom;
+}
+
+body.contact main {
+  position: relative;
+  top: -7rem;
+  margin-bottom: -4rem;
+}
+
+body.contact .contactForm, body.contact aside {
+  padding: 3rem 0;
+}
+
+body.contact .contactForm {
+  background: #f5f5f5;
+}
+
+body.contact aside {
+  margin-bottom: -7rem;
+}
+
+body.contact aside .socialMediaIcons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body.contact aside .socialMediaIcons li {
+  margin-right: 1rem;
+}
+
+body.contact aside .socialMediaIcons i:hover, body.contact aside .socialMediaIcons i:focus,
+body.contact aside .contactEmail:hover, body.contact aside .contactEmail:focus {
+  color: #f8fb05;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+body.contact aside .contactAddress p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  body.contact main > .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body.contact .contactForm {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+  }
+  body.contact aside {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+  }
 }

@@ -1,5 +1,52 @@
 body.contact {
-    header {
-        @include addHeaderBg("../images/contact-image.jpg");
+    // Base background colour over page
+    background: $darkerBgColor;
+
+    // Custom background
+    header { @include addHeaderBg("../images/contact-image.jpg"); }
+
+    // Pushes contact form up to bleed into header
+    main {
+        position: relative;
+        top: -7rem;
+        margin-bottom: -4rem;
+    }
+
+    // General padding for breathing room
+    .contactForm, aside { padding: 3rem 0; }
+    
+    // 
+    .contactForm {
+        background: $lighterBgColor;
+    }
+
+    // Contact information section
+    aside {
+        margin-bottom: -7rem; // Counteracts pushing up of main
+
+        .socialMediaIcons { display: flex; }
+        .socialMediaIcons li { margin-right: 1rem; }
+
+        .socialMediaIcons i:hover, .socialMediaIcons i:focus,
+        .contactEmail:hover, .contactEmail:focus {
+            color: $accentColor;
+            transition: color 0.2s ease;
+        }
+
+        .contactAddress p { margin: 0; }
+    }
+}
+
+@media (min-width: 768px) {
+    body.contact {
+        main > .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contactForm { flex: 0 0 60%; }
+        aside { flex: 0 0 auto; }
     }
 }

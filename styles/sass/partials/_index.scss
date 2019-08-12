@@ -34,12 +34,23 @@ body.index {
 
     // Gallery section
     section.gallery {
+        .wrapper { overflow: hidden; }
         ul {
             display: flex;
-            overflow-x: scroll; // Creates a kind of slider experience with pure CSS
+            animation: slide 10s ease infinite; // Creates a kind of slider experience with pure CSS
         }
-        li { min-width: 15rem; } // Makes images big enough for slider
-        li:nth-child(2) { margin: 0 1rem; }
+
+        li { flex: 0 0 100%; }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            10% { transform: translateX(-100%); }
+            34% { transform: translateX(-100%); }
+            44% { transform: translateX(-200%); }
+            68% { transform: translateX(-200%); }
+            75% { transform: translateX(0%); }
+        }
+        
     }
 
     // Sub nav section
@@ -95,6 +106,14 @@ body.index {
     }
 }
 
+@media (min-width: 480px) {
+    body.index {
+        section.gallery {
+            .wrapper { width: 50%; } // Shrinks gallery width
+        }
+    }
+}
+
 @media (min-width: 768px) {
     body.index {
         // Header breakpoint
@@ -117,12 +136,7 @@ body.index {
             flex-direction: column;
             align-items: flex-end;
 
-            .pseudoShadowContainer {
-                // width: 60%;
-                // max-width: 100%;
-                // right: 0;
-                right: -12.5%;
-            }
+            .pseudoShadowContainer { right: -12.5%; }
         }
 
         // Sub nav breakpoint
@@ -164,6 +178,16 @@ body.index {
             .featuredPostContent { width: 60%; }
             .pseudoShadowContainer { width: 30%; right: 0; margin-top: 0; }
         }
+
+        //Gallery breakpoint
+        section.gallery {
+            .wrapper { width: 80%; }
+            ul {
+                justify-content: space-between;
+                animation: none;
+            }
+            li { flex: 0 0 31.5%; }
+        }
         
         // Secondary posts breakpoint
         section.secondaryPosts {
@@ -174,12 +198,12 @@ body.index {
     }
 }
 
-@media (min-width: 1280px) {
-    body.index {
-        // Gallery breakpoint
-        section.gallery {
-            ul { justify-content: space-between; }
-            li { min-width: auto; }
-        }
-    }
-}
+// @media (min-width: 1280px) {
+//     body.index {
+//         // Gallery breakpoint
+//         section.gallery {
+//             ul { justify-content: space-between; }
+//             li { min-width: auto; }
+//         }
+//     }
+// }

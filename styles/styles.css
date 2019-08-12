@@ -581,19 +581,76 @@ body.index section.featuredPost .pseudoShadowContainer::before {
   left: -1.5vw;
 }
 
+body.index section.gallery .wrapper {
+  overflow: hidden;
+}
+
 body.index section.gallery ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow-x: scroll;
+  -webkit-animation: slide 10s ease infinite;
+          animation: slide 10s ease infinite;
 }
 
 body.index section.gallery li {
-  min-width: 15rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
 }
 
-body.index section.gallery li:nth-child(2) {
-  margin: 0 1rem;
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  10% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  34% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  44% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  68% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  75% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes slide {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  10% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  34% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  44% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  68% {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  75% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
 }
 
 body.index section.subNavSection ul {
@@ -702,6 +759,12 @@ body.index section.heroPost p {
   margin-top: 0;
 }
 
+@media (min-width: 480px) {
+  body.index section.gallery .wrapper {
+    width: 50%;
+  }
+}
+
 @media (min-width: 768px) {
   body.index header {
     background-position: center center;
@@ -792,6 +855,21 @@ body.index section.heroPost p {
     right: 0;
     margin-top: 0;
   }
+  body.index section.gallery .wrapper {
+    width: 80%;
+  }
+  body.index section.gallery ul {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-animation: none;
+            animation: none;
+  }
+  body.index section.gallery li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 31.5%;
+            flex: 0 0 31.5%;
+  }
   body.index section.secondaryPosts .pseudoShadowContainer {
     margin: 0;
   }
@@ -800,17 +878,6 @@ body.index section.heroPost p {
   }
   body.index section.secondaryPosts .secondaryPost:last-child .pseudoShadowContainer {
     top: 2rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  body.index section.gallery ul {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  body.index section.gallery li {
-    min-width: auto;
   }
 }
 
@@ -1053,12 +1120,31 @@ body.contact .contactForm, body.contact aside {
   padding: 3rem 0;
 }
 
+body.contact .contactFormContainer {
+  position: relative;
+  left: -0.4rem;
+}
+
+body.contact .contactFormContainer::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0.8rem;
+  background: #f8fb05;
+  right: -0.8rem;
+}
+
 body.contact .contactForm {
   background: #f5f5f5;
+  position: relative;
+  z-index: 2;
 }
 
 body.contact aside {
   margin-bottom: -7rem;
+  margin-left: 2rem;
 }
 
 body.contact aside .socialMediaIcons {
@@ -1102,10 +1188,11 @@ body.contact aside .contactAddress p {
         -ms-flex-align: center;
             align-items: center;
   }
-  body.contact .contactForm {
+  body.contact .contactFormContainer {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 65%;
             flex: 0 0 65%;
+    left: 0;
   }
   body.contact aside {
     -webkit-box-flex: 0;
@@ -1115,7 +1202,7 @@ body.contact aside .contactAddress p {
 }
 
 @media (min-width: 940px) {
-  body.contact .contactForm {
+  body.contact .contactFormContainer {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 70%;
             flex: 0 0 70%;

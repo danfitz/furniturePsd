@@ -18,14 +18,23 @@ body.contact {
     // General padding for breathing room
     .contactForm, aside { padding: 3rem 0; }
     
-    // 
+    // Contact form section
+    .contactFormContainer {
+        position: relative;
+        left: -0.4rem; // Shifts element a little bit for balance
+    }
+    .contactFormContainer::before { @include addPseudoShadow("right", 0.8rem); }
+    
     .contactForm {
         background: $lighterBgColor;
+        position: relative;
+        z-index: 2;
     }
 
     // Contact information section
     aside {
         margin-bottom: -7rem; // Counteracts pushing up of main
+        margin-left: 2rem; // Breathing room
 
         .socialMediaIcons { display: flex; }
         .socialMediaIcons li { margin-right: 1rem; }
@@ -41,6 +50,8 @@ body.contact {
     }
 }
 
+
+
 @media (min-width: 768px) {
     body.contact {
         main > .wrapper {
@@ -50,15 +61,18 @@ body.contact {
             align-items: center;
         }
 
-        .contactForm { flex: 0 0 65%; }
+        .contactFormContainer {
+            flex: 0 0 65%;
+            left: 0; // Removes element shift
+        }
         aside { flex: 0 0 auto; }
     }
 }
 
 @media (min-width: 940px) {
     body.contact {
-        .contactForm { flex: 0 0 70%; }
-        
+        .contactFormContainer { flex: 0 0 70%; }
+
         // Places name and email address inputs side by side
         input[type="text"], input[type="email"] { width: 46%; }
         input[type="text"] { float: left; }

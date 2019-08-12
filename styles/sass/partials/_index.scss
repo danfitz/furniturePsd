@@ -15,6 +15,7 @@ body.index {
             left: 0;
             max-width: 15rem;
         }
+        h2 { max-width: 15rem; } // Breaks title into two lines
     }
     
     // Featured post section

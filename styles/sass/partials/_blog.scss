@@ -5,7 +5,6 @@ body.blog {
     // Header section
     header { @include addHeaderBg("../images/blog-image.jpg"); }
 
-    
     // Pushes blog post up
     .blogPost {
         position: relative;
@@ -131,6 +130,11 @@ body.blog {
             .commentContent { flex: 1 1 auto; }
             .commentMetadata { margin-top: 0; }
         }
+
+        // Places name and email address inputs side by side
+        input[type="text"], input[type="email"] { width: 46%; }
+        input[type="text"] { float: left; }
+        input[type="email"] { float: right; }
 
         // Aside breakpoint
         aside {

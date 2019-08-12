@@ -213,7 +213,6 @@ h2 {
   font-family: "Kumar One Outline", cursive;
   font-size: 1.7rem;
   line-height: 1.6rem;
-  max-width: 15rem;
 }
 
 h3 {
@@ -518,15 +517,6 @@ footer p {
   .currentPage::after {
     width: 95%;
   }
-  input[type="text"], input[type="email"] {
-    width: 46%;
-  }
-  input[type="text"] {
-    float: left;
-  }
-  input[type="email"] {
-    float: right;
-  }
 }
 
 @media (min-width: 1280px) {
@@ -561,6 +551,10 @@ body.index header img {
   position: absolute;
   bottom: -15%;
   left: 0;
+  max-width: 15rem;
+}
+
+body.index header h2 {
   max-width: 15rem;
 }
 
@@ -1020,6 +1014,15 @@ body.blog .recentPosts p {
   body.blog section.comments .commentMetadata {
     margin-top: 0;
   }
+  body.blog input[type="text"], body.blog input[type="email"] {
+    width: 46%;
+  }
+  body.blog input[type="text"] {
+    float: left;
+  }
+  body.blog input[type="email"] {
+    float: right;
+  }
   body.blog aside {
     width: auto;
     margin: 0;
@@ -1037,6 +1040,7 @@ body.contact header {
   background: #f5f5f5 url("../images/contact-image.jpg");
   background-size: cover;
   background-position: center bottom;
+  background-position: right bottom;
 }
 
 body.contact main {
@@ -1074,6 +1078,10 @@ body.contact aside .contactEmail:hover, body.contact aside .contactEmail:focus {
   transition: color 0.2s ease;
 }
 
+body.contact aside .contactEmail {
+  display: inline-block;
+}
+
 body.contact aside .contactAddress p {
   margin: 0;
 }
@@ -1096,12 +1104,29 @@ body.contact aside .contactAddress p {
   }
   body.contact .contactForm {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 60%;
-            flex: 0 0 60%;
+        -ms-flex: 0 0 65%;
+            flex: 0 0 65%;
   }
   body.contact aside {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 940px) {
+  body.contact .contactForm {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 70%;
+            flex: 0 0 70%;
+  }
+  body.contact input[type="text"], body.contact input[type="email"] {
+    width: 46%;
+  }
+  body.contact input[type="text"] {
+    float: left;
+  }
+  body.contact input[type="email"] {
+    float: right;
   }
 }

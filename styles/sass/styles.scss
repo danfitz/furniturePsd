@@ -52,7 +52,6 @@ h2 {
     font-family: $pageTitleFont;
     font-size: 1.7rem;
     line-height: 1.6rem;
-    max-width: 15rem; // Breaks title into two lines
 }
 h3 {
     font-size: 0.95rem;
@@ -322,13 +321,6 @@ footer p {
     }
 
     .currentPage::after { width: 95%; } // Changes yellow underline width
-
-    // Places name and email address inputs side by side
-    input[type="text"], input[type="email"] {
-        width: 46%;
-    }
-    input[type="text"] { float: left; }
-    input[type="email"] { float: right; }
 }
 
 @media (min-width: 1280px) {

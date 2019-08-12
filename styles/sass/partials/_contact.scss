@@ -1,10 +1,13 @@
 body.contact {
     // Base background colour over page
     background: $darkerBgColor;
-
+    
     // Custom background
-    header { @include addHeaderBg("../images/contact-image.jpg"); }
-
+    header {
+        @include addHeaderBg("../images/contact-image.jpg");
+        background-position: right bottom;
+    }
+    
     // Pushes contact form up to bleed into header
     main {
         position: relative;
@@ -32,6 +35,7 @@ body.contact {
             color: $accentColor;
             transition: color 0.2s ease;
         }
+        .contactEmail { display: inline-block; }
 
         .contactAddress p { margin: 0; }
     }
@@ -46,7 +50,18 @@ body.contact {
             align-items: center;
         }
 
-        .contactForm { flex: 0 0 60%; }
+        .contactForm { flex: 0 0 65%; }
         aside { flex: 0 0 auto; }
+    }
+}
+
+@media (min-width: 940px) {
+    body.contact {
+        .contactForm { flex: 0 0 70%; }
+        
+        // Places name and email address inputs side by side
+        input[type="text"], input[type="email"] { width: 46%; }
+        input[type="text"] { float: left; }
+        input[type="email"] { float: right; }
     }
 }

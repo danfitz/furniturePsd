@@ -1,14 +1,23 @@
 body.blog {
     // Default background colour
-    background: $darkerBgColor;
+    // background: $darkerBgColor;
     
     // Header section
-    header { @include addHeaderBg("../images/blog-image.jpg"); }
+    header {
+        @include addHeaderBg("../images/blog-image.jpg");
+        
+        h2 { margin-bottom: 0; }
+    }
+    main { background: $darkerBgColor;
+        padding-bottom: 3rem;
+    }
 
     // Pushes blog post up
     .blogPost {
         position: relative;
-        top: -7rem;
+        top: -7rem; // Pushes blog post up to bleed over into header
+        margin-bottom: -7rem; // Corrects for blog post being pushed up
+        padding-bottom: 3rem;
     }
     
     // Blog post section
@@ -43,7 +52,6 @@ body.blog {
     // Comments section
     section.comments {
         padding-top: 1rem;
-        margin-bottom: -4rem; // Corrects for article being pushed up
 
         // Special wrapper
         width: 80%;
@@ -71,7 +79,7 @@ body.blog {
         position: relative;
         background: $accentColor;
         width: 60%;
-        margin: 0 20% 3rem;
+        margin: 0 20%;
         border-bottom: 0.8rem solid $accentColor;
     }
     aside::before { @include addPseudoShadow("left", 0.8rem); }
@@ -98,6 +106,7 @@ body.blog {
     
         // Main breakpoint
         main {
+            padding-bottom: 0;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -138,7 +147,7 @@ body.blog {
         // Aside breakpoint
         aside {
             width: auto;
-            margin: 0;
+            margin: 4.5rem 0 0;
         }
         .missionStatement, .recentPosts { padding-right: 1rem; }
     }

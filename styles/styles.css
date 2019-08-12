@@ -893,19 +893,26 @@ body.index section.heroPost p {
   }
 }
 
-body.blog {
-  background: #e0fddf;
-}
-
 body.blog header {
   background: #f5f5f5 url("../images/blog-image.jpg");
   background-size: cover;
   background-position: center bottom;
 }
 
+body.blog header h2 {
+  margin-bottom: 0;
+}
+
+body.blog main {
+  background: #e0fddf;
+  padding-bottom: 3rem;
+}
+
 body.blog .blogPost {
   position: relative;
   top: -7rem;
+  margin-bottom: -7rem;
+  padding-bottom: 3rem;
 }
 
 body.blog section.blogPostContent {
@@ -960,7 +967,6 @@ body.blog section.blogPostContent p {
 
 body.blog section.comments {
   padding-top: 1rem;
-  margin-bottom: -4rem;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
@@ -998,7 +1004,7 @@ body.blog aside {
   position: relative;
   background: #f8fb05;
   width: 60%;
-  margin: 0 20% 3rem;
+  margin: 0 20%;
   border-bottom: 0.8rem solid #f8fb05;
 }
 
@@ -1040,6 +1046,7 @@ body.blog .recentPosts p {
     background-position: center center;
   }
   body.blog main {
+    padding-bottom: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1104,15 +1111,11 @@ body.blog .recentPosts p {
   }
   body.blog aside {
     width: auto;
-    margin: 0;
+    margin: 4.5rem 0 0;
   }
   body.blog .missionStatement, body.blog .recentPosts {
     padding-right: 1rem;
   }
-}
-
-body.contact {
-  background: #e0fddf;
 }
 
 body.contact header {
@@ -1122,10 +1125,12 @@ body.contact header {
   background-position: right bottom;
 }
 
+body.contact header h2 {
+  margin-bottom: 0;
+}
+
 body.contact main {
-  position: relative;
-  top: -7rem;
-  margin-bottom: -4rem;
+  background: #e0fddf;
 }
 
 body.contact .contactForm, body.contact aside {
@@ -1134,6 +1139,7 @@ body.contact .contactForm, body.contact aside {
 
 body.contact .contactFormContainer {
   position: relative;
+  top: -7rem;
   left: -0.4rem;
 }
 
@@ -1155,7 +1161,7 @@ body.contact .contactForm {
 }
 
 body.contact aside {
-  margin-bottom: -7rem;
+  margin-top: -7rem;
   margin-left: 2rem;
 }
 
@@ -1205,11 +1211,13 @@ body.contact aside .contactAddress p {
         -ms-flex: 0 0 65%;
             flex: 0 0 65%;
     left: 0;
+    margin-bottom: -3rem;
   }
   body.contact aside {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
+    margin-top: 0;
   }
 }
 

@@ -1,26 +1,24 @@
 body.contact {
     // Base background colour over page
-    background: $darkerBgColor;
     
     // Custom background
     header {
         @include addHeaderBg("../images/contact-image.jpg");
         background-position: right bottom;
+
+        h2 { margin-bottom: 0; }
     }
     
-    // Pushes contact form up to bleed into header
-    main {
-        position: relative;
-        top: -7rem;
-        margin-bottom: -4rem;
-    }
-
+    // Background colour
+    main { background: $darkerBgColor; }
+    
     // General padding for breathing room
     .contactForm, aside { padding: 3rem 0; }
     
     // Contact form section
     .contactFormContainer {
         position: relative;
+        top: -7rem; // Pushes contact form up to bleed over into header
         left: -0.4rem; // Shifts element a little bit for balance
     }
     .contactFormContainer::before { @include addPseudoShadow("right", 0.8rem); }
@@ -32,7 +30,7 @@ body.contact {
 
     // Contact information section
     aside {
-        margin-bottom: -7rem; // Counteracts pushing up of main
+        margin-top: -7rem; // Counteracts pushing up of contact form
         margin-left: 2rem; // Breathing room
 
         .socialMediaIcons { display: flex; }
@@ -63,8 +61,12 @@ body.contact {
         .contactFormContainer {
             flex: 0 0 65%;
             left: 0; // Removes element shift
+            margin-bottom: -3rem; // Counteracts pushing up of contact form
         }
-        aside { flex: 0 0 auto; }
+        aside {
+            flex: 0 0 auto;
+            margin-top: 0;
+        }
     }
 }
 

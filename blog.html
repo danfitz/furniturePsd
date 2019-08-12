@@ -12,6 +12,7 @@
 </head>
 
 <body class="blog">
+    <a href="#main" class="skipToMain button">Skip to Main Content</a>
 
     <header>
         <div class="wrapper">
@@ -19,6 +20,7 @@
                 <div class="logoContainer">
                     <h1><a href="index.html">Sanctuary Helpers</a></h1>
                 </div>
+                
                 <nav class="mainNav">
                     <input type="checkbox" class="visuallyHidden" id="menuButton" name="menuButton">
                     <label for="menuButton">
@@ -34,11 +36,12 @@
                     </ul>
                 </nav>
             </div>
+
             <h2>Blog</h2>
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <article class="blogPost">
             <section class="blogPostContent">
                 <figure class="featuredImage">
@@ -91,7 +94,7 @@
                     <input type="email" id="email" name="email" placeholder="Email Address" required>
 
                     <label for="commentInput" class="visuallyHidden">Comment</label>
-                    <textarea name="commentInput" id="commentInput" rows="7" placeholder="Comment" required></textarea>
+                    <textarea name="commentInput" id="commentInput" rows="5" placeholder="Comment" required></textarea>
 
                     <input type="submit" value="Post Comment">
                 </form>

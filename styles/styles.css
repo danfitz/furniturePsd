@@ -320,6 +320,18 @@ ul {
   list-style-type: none;
 }
 
+.skipToMain {
+  position: absolute;
+  z-index: 5;
+  top: 0.12rem;
+  left: 0.12rem;
+  opacity: 0;
+}
+
+.skipToMain:focus {
+  opacity: 1;
+}
+
 header {
   min-height: 100vh;
   position: relative;
@@ -561,8 +573,8 @@ body.index header h2 {
 body.index section.featuredPost .pseudoShadowContainer {
   position: relative;
   margin-top: 2rem;
-  right: -52.5%;
   width: 60%;
+  right: -52.5%;
 }
 
 body.index section.featuredPost .featuredPostImage {
@@ -770,8 +782,8 @@ body.index section.heroPost p {
     background-position: center center;
   }
   body.index header h2 {
-    padding-top: 50px;
-    margin-left: 5rem;
+    padding-top: 2rem;
+    margin-left: 10%;
   }
   body.index header img {
     width: 40%;

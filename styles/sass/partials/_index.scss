@@ -1,7 +1,7 @@
 body.index {
     // General styling for sections
     section { padding: 2.5rem 0; }
-    section.featuredPost { padding-top: 6rem; }
+    section.featuredPost { padding-top: 6rem; } // Extra padding for header image bleeding over
     section.gallery, section.secondaryPosts { background: $darkerBgColor; }
     
     // Header section
@@ -23,10 +23,8 @@ body.index {
         .pseudoShadowContainer {
             position: relative;
             margin-top: 2rem;
-            right: -52.5%;
-            // width: 80%;
-            // max-width: 16rem;
             width: 60%;
+            right: -52.5%;
         }
         .featuredPostImage { position: relative; z-index: 2; }
         .pseudoShadowContainer::before { @include addPseudoShadow("left", 1.5vw); }
@@ -37,7 +35,7 @@ body.index {
         .wrapper { overflow: hidden; }
         ul {
             display: flex;
-            animation: slide 10s ease infinite; // Creates a kind of slider experience with pure CSS
+            animation: slide 10s ease infinite; // Creates automatic slider with pure CSS
         }
 
         li { flex: 0 0 100%; }
@@ -86,8 +84,10 @@ body.index {
             width: 80%;
         }
         .secondaryPostImage { position: relative; z-index: 2; }
+
         .secondaryPost:nth-child(odd) .pseudoShadowContainer { right: 12.5%; }
         .secondaryPost:nth-child(even) .pseudoShadowContainer { right: -32.5%; }
+        
         .secondaryPost:nth-child(odd) .pseudoShadowContainer::before { @include addPseudoShadow("right", 1.5vw); }
         .secondaryPost:nth-child(even) .pseudoShadowContainer::before { @include addPseudoShadow("left", 1.5vw); }
     }
@@ -95,6 +95,7 @@ body.index {
     // Hero post section
     section.heroPost {
         padding: 0;
+        
         .heroPostContent { padding: 2.5rem 0; }
         .heroPostContent .wrapper {
             display: flex;
@@ -118,11 +119,11 @@ body.index {
     body.index {
         // Header breakpoint
         header {
-            background-position: center center;
+            background-position: center center; // Reshifts center point of image
 
             h2 {
-                padding-top: 50px;
-                margin-left: 5rem;
+                padding-top: 2rem;
+                margin-left: 10%;
             }
             img {
                 width: 40%;
@@ -191,19 +192,10 @@ body.index {
         
         // Secondary posts breakpoint
         section.secondaryPosts {
+            // Adds bleeding over effect for images
             .pseudoShadowContainer { margin: 0; }
             .secondaryPost:first-child .pseudoShadowContainer { bottom: 1rem; }
             .secondaryPost:last-child .pseudoShadowContainer { top: 2rem; }
         }
     }
 }
-
-// @media (min-width: 1280px) {
-//     body.index {
-//         // Gallery breakpoint
-//         section.gallery {
-//             ul { justify-content: space-between; }
-//             li { min-width: auto; }
-//         }
-//     }
-// }

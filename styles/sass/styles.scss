@@ -5,13 +5,9 @@
 
 // ===== GENERAL STYLING =====
 
-// For testing purposes
-// * {
-//     // border: 1px solid green;
-// }
-
 // @@@@@ Site-wide styles
 html {
+    // Base background colour
     background: $lighterBgColor;
     
     // Sets base font size to 20px on most browsers
@@ -143,6 +139,18 @@ ul {
 
 
 
+// @@@@@ Skip to main content button styles
+.skipToMain {
+    position: absolute;
+    z-index: 5;
+    top: 0.12rem;
+    left: 0.12rem;
+    opacity: 0;
+}
+.skipToMain:focus { opacity: 1; }
+
+
+
 // @@@@@ Header styles
 header {
     min-height: 100vh;
@@ -190,7 +198,9 @@ header a {
     background: $accentColor;
 }
 
-// @@ Hamburger menu styles & animations (applies up to 768px viewport width)
+
+
+// @@@@@ Hamburger menu styles & animations (applies up to 768px viewport width)
 
 // Visually hides navigation menu but keeps it accessible
 .mainNav ul {
@@ -323,6 +333,7 @@ footer p {
     .currentPage::after { width: 95%; } // Changes yellow underline width
 }
 
+// @@@@@ Breakpoint for desktops
 @media (min-width: 1280px) {
     // Base font increase
     html { font-size: 175%; }

@@ -24,7 +24,6 @@ body.contact {
         left: -0.4rem; // Shifts element a little bit for balance
     }
     .contactFormContainer::before { @include addPseudoShadow("right", 0.8rem); }
-    
     .contactForm {
         background: $lighterBgColor;
         position: relative;

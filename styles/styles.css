@@ -460,6 +460,11 @@ header a {
   transition: all 0.2s ease;
 }
 
+.mainNav input[type="checkbox"]:focus + label {
+  -webkit-box-shadow: 0 0 0 0.12rem #f8fb05;
+          box-shadow: 0 0 0 0.12rem #f8fb05;
+}
+
 footer {
   padding: 0.25rem 0;
   background: #151514;

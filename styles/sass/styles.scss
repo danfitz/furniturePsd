@@ -273,6 +273,11 @@ header a {
     transition: all 0.2s ease;
 }
 
+// Focus state for hamburger menu
+.mainNav input[type="checkbox"]:focus + label {
+    box-shadow: 0 0 0 0.12rem $accentColor;
+}
+
 
 
 // @@@@@ Footer styles

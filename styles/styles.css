@@ -898,6 +898,11 @@ body.index section.heroPost p {
   }
 }
 
+body.blog main {
+  background: #e0fddf;
+  padding-bottom: 3rem;
+}
+
 body.blog header {
   background: #f5f5f5 url("../images/blog-image.jpg");
   background-size: cover;
@@ -908,15 +913,10 @@ body.blog header h2 {
   margin-bottom: 0;
 }
 
-body.blog main {
-  background: #e0fddf;
-  padding-bottom: 3rem;
-}
-
 body.blog .blogPost {
   position: relative;
-  top: -7rem;
-  margin-bottom: -7rem;
+  top: -5rem;
+  margin-bottom: -5rem;
   padding-bottom: 3rem;
 }
 
@@ -1013,6 +1013,32 @@ body.blog aside {
   border-bottom: 0.8rem solid #f8fb05;
 }
 
+body.blog aside .asideImage, body.blog aside .missionStatement, body.blog aside .recentPosts {
+  position: relative;
+  z-index: 2;
+}
+
+body.blog aside h4 {
+  margin: 0.7rem 0;
+}
+
+body.blog aside .missionStatement, body.blog aside .recentPosts {
+  padding-right: 0.5rem;
+}
+
+body.blog aside .recentPosts ul {
+  list-style-type: disc;
+  margin-left: 1.4rem;
+}
+
+body.blog aside p {
+  margin: 0;
+}
+
+body.blog aside .missionStatement p:last-child {
+  margin-bottom: 1rem;
+}
+
 body.blog aside::before {
   content: "";
   display: block;
@@ -1022,28 +1048,6 @@ body.blog aside::before {
   top: 0.8rem;
   background: #f8fb05;
   left: -0.8rem;
-}
-
-body.blog .asideImage, body.blog .missionStatement, body.blog .recentPosts {
-  position: relative;
-  z-index: 2;
-}
-
-body.blog .missionStatement, body.blog .recentPosts {
-  padding-right: 0.5rem;
-}
-
-body.blog h4 {
-  margin: 0.7rem 0;
-}
-
-body.blog .recentPosts ul {
-  list-style-type: disc;
-  margin-left: 1.4rem;
-}
-
-body.blog .recentPosts p {
-  margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -1118,9 +1122,17 @@ body.blog .recentPosts p {
     width: auto;
     margin: 4.5rem 0 0;
   }
-  body.blog .missionStatement, body.blog .recentPosts {
+  body.blog aside .missionStatement, body.blog aside .recentPosts {
     padding-right: 1rem;
   }
+}
+
+body.contact main {
+  background: #e0fddf;
+}
+
+body.contact .contactForm, body.contact aside {
+  padding: 3rem 0;
 }
 
 body.contact header {
@@ -1134,17 +1146,10 @@ body.contact header h2 {
   margin-bottom: 0;
 }
 
-body.contact main {
-  background: #e0fddf;
-}
-
-body.contact .contactForm, body.contact aside {
-  padding: 3rem 0;
-}
-
 body.contact .contactFormContainer {
   position: relative;
-  top: -7rem;
+  top: -6rem;
+  margin-bottom: -6rem;
   left: -0.4rem;
 }
 
@@ -1166,7 +1171,6 @@ body.contact .contactForm {
 }
 
 body.contact aside {
-  margin-top: -7rem;
   margin-left: 2rem;
 }
 
@@ -1216,7 +1220,7 @@ body.contact aside .contactAddress p {
         -ms-flex: 0 0 65%;
             flex: 0 0 65%;
     left: 0;
-    margin-bottom: -3rem;
+    margin-bottom: -2rem;
   }
   body.contact aside {
     -webkit-box-flex: 0;

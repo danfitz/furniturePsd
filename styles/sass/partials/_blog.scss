@@ -1,22 +1,22 @@
-body.blog {
-    // Default background colour
-    // background: $darkerBgColor;
+body.blog {    
+    // General styling for main
+    main {
+        background: $darkerBgColor;
+        padding-bottom: 3rem;
+    }
     
     // Header section
     header {
-        @include addHeaderBg("../images/blog-image.jpg");
+        @include addHeaderBg("../images/blog-image.jpg"); // Custom background
         
         h2 { margin-bottom: 0; }
-    }
-    main { background: $darkerBgColor;
-        padding-bottom: 3rem;
     }
 
     // Pushes blog post up
     .blogPost {
         position: relative;
-        top: -7rem; // Pushes blog post up to bleed over into header
-        margin-bottom: -7rem; // Corrects for blog post being pushed up
+        top: -5rem; // Pushes blog post up to bleed over into header
+        margin-bottom: -5rem; // Corrects for blog post being pushed up
         padding-bottom: 3rem;
     }
     
@@ -75,29 +75,35 @@ body.blog {
     }
 
     // Aside section
+
     aside {
+        // Special styling for unique yellow background
         position: relative;
         background: $accentColor;
         width: 60%;
         margin: 0 20%;
         border-bottom: 0.8rem solid $accentColor;
+        .asideImage, .missionStatement, .recentPosts {
+            position: relative;
+            z-index: 2;
+        }
+
+        // Font styling
+        h4 { margin: 0.7rem 0; }
+        .missionStatement, .recentPosts { padding-right: 0.5rem; }
+        .recentPosts ul {
+            list-style-type: disc;
+            margin-left: 1.4rem;
+        }
+        p { margin: 0; }
+        .missionStatement p:last-child { margin-bottom: 1rem; }
     }
     aside::before { @include addPseudoShadow("left", 0.8rem); }
     
-    .asideImage, .missionStatement, .recentPosts {
-        position: relative;
-        z-index: 2;
-    }
 
-    // Font styling
-    .missionStatement, .recentPosts { padding-right: 0.5rem; }
-    h4 { margin: 0.7rem 0; }
-    .recentPosts ul {
-        list-style-type: disc;
-        margin-left: 1.4rem;
-    }
-    .recentPosts p { margin: 0; }
 }
+
+
 
 @media (min-width: 768px) {
     body.blog {
@@ -148,8 +154,9 @@ body.blog {
         aside {
             width: auto;
             margin: 4.5rem 0 0;
+            
+            .missionStatement, .recentPosts { padding-right: 1rem; }
         }
-        .missionStatement, .recentPosts { padding-right: 1rem; }
     }
 
 }

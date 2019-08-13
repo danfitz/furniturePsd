@@ -1,24 +1,24 @@
-body.contact {
-    // Base background colour over page
-    
-    // Custom background
-    header {
-        @include addHeaderBg("../images/contact-image.jpg");
-        background-position: right bottom;
-
-        h2 { margin-bottom: 0; }
-    }
-    
+body.contact {    
     // Background colour
     main { background: $darkerBgColor; }
     
     // General padding for breathing room
     .contactForm, aside { padding: 3rem 0; }
     
+    // Header section
+    header {
+        // Custom background
+        @include addHeaderBg("../images/contact-image.jpg");
+        background-position: right bottom;
+
+        h2 { margin-bottom: 0; }
+    }
+    
     // Contact form section
     .contactFormContainer {
         position: relative;
-        top: -7rem; // Pushes contact form up to bleed over into header
+        top: -6rem; // Pushes contact form up to bleed over into header
+        margin-bottom: -6rem; // Counteracts pushing up of contact form
         left: -0.4rem; // Shifts element a little bit for balance
     }
     .contactFormContainer::before { @include addPseudoShadow("right", 0.8rem); }
@@ -30,7 +30,6 @@ body.contact {
 
     // Contact information section
     aside {
-        margin-top: -7rem; // Counteracts pushing up of contact form
         margin-left: 2rem; // Breathing room
 
         .socialMediaIcons { display: flex; }
@@ -51,17 +50,17 @@ body.contact {
 
 @media (min-width: 768px) {
     body.contact {
+        // Adds flex and makes main contact form and aside side by side
         main > .wrapper {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
         }
-
         .contactFormContainer {
             flex: 0 0 65%;
             left: 0; // Removes element shift
-            margin-bottom: -3rem; // Counteracts pushing up of contact form
+            margin-bottom: -2rem; // Counteracts pushing up of contact form
         }
         aside {
             flex: 0 0 auto;
@@ -70,9 +69,11 @@ body.contact {
     }
 }
 
+
+
 @media (min-width: 940px) {
     body.contact {
-        .contactFormContainer { flex: 0 0 70%; }
+        .contactFormContainer { flex: 0 0 70%; } // Slight bump in width
 
         // Places name and email address inputs side by side
         input[type="text"], input[type="email"] { width: 46%; }

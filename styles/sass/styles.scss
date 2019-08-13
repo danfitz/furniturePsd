@@ -338,11 +338,15 @@ footer p {
     .currentPage::after { width: 95%; } // Changes yellow underline width
 }
 
+
+
 // @@@@@ Breakpoint for desktops
 @media (min-width: 1280px) {
     // Base font increase
     html { font-size: 175%; }
 }
+
+
 
 // Import page partials
 @import "partials/_index.scss";

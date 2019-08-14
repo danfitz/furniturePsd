@@ -384,7 +384,6 @@ header a {
 
 .mainNav ul {
   padding: 3rem 1rem 1rem;
-  visibility: hidden;
   opacity: 0;
   position: relative;
   z-index: 98;
@@ -431,7 +430,6 @@ header a {
 }
 
 .mainNav input[type="checkbox"]:checked ~ ul {
-  visibility: visible;
   opacity: 1;
   background: #f5f5f5;
   -webkit-box-shadow: -0.3rem 0.3rem 0 0.05rem #f8fb05;
@@ -519,7 +517,6 @@ footer p {
   }
   .mainNav ul {
     padding: 0;
-    visibility: visible;
     opacity: 1;
     display: -webkit-box;
     display: -ms-flexbox;

@@ -68,7 +68,7 @@ body.index {
             margin-right: 1rem;
             padding: 0.5rem;
             background: $accentColor;
-            border-radius: 180px;
+            border-radius: 50%;
             font-size: 0.8rem;
         }
         h3 { margin: 0.2rem 0 0; }
@@ -90,6 +90,11 @@ body.index {
         
         .secondaryPost:nth-child(odd) .pseudoShadowContainer::before { @include addPseudoShadow("right", 1.5vw); }
         .secondaryPost:nth-child(even) .pseudoShadowContainer::before { @include addPseudoShadow("left", 1.5vw); }
+     
+        .secondaryPostContent {
+            h3 { margin-bottom: 0;}
+            p { margin: 0.5rem 0 1rem; }
+        }
     }
 
     // Hero post section
@@ -159,6 +164,7 @@ body.index {
                 align-items: center;
             }
             .secondaryPost:nth-child(odd) { flex-direction: row-reverse; }
+            .secondaryPost:last-child { padding-bottom: 1rem; }
             .secondaryPostContent { width: 50%; }
             .pseudoShadowContainer { width: 60%; }
             .secondaryPost:nth-child(odd) .pseudoShadowContainer { right: 12.5%; }

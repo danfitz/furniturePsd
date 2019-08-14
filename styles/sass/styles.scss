@@ -1,11 +1,33 @@
-// Import styling resources
+// ========== TABLE OF CONTENTS: GENERAL STYLING ==========
+
+// To navigate, use the table of contents section titles below and ctrl+F for them
+
+// This table of contents is a makeshift solution though... If I were to go back, I'd make use of partials more.
+
+// 1. STYLING RESOURCES IMPORT
+// 2. SITE-WIDE STYLES
+// 3. WRAPPER
+// 4. IMAGE WIDTH
+// 5. TYPOGRAPHY
+// 6. UL STYLE CLEARANCE
+// 7. BUTTON
+// 8. FORM
+// 9. SKIP TO MAIN
+// 10. HEADER
+// 11. HAMBURGER MENU
+// 12. FOOTER
+// 13. 480PX BREAKPOINT - LARGER PHONES AND UP
+// 14. 768PX BREAKPOINT - TABLETS AND UP
+// 15. 1280PX BREAKPOINT - DESKTOPS AND UP
+// 16. PAGE PARTIALS IMPORT
+
+// @@@@@ 1. STYLING RESOURCES IMPORT
 @import "partials/variables";
 @import "partials/mixins";
 @import "partials/setup";
 
-// ===== GENERAL STYLING =====
 
-// @@@@@ Site-wide styles
+// @@@@@ 2. SITE-WIDE STYLES
 html {
     // Base background colour
     background: $lighterBgColor;
@@ -15,8 +37,7 @@ html {
 }
 
 
-
-// @@@@@ Wrapper
+// @@@@@ 3. WRAPPER
 .wrapper {
     width: 80%;
     max-width: 1280px;
@@ -25,12 +46,12 @@ html {
 
 
 
-// @@@@@ Makes images fit into their containers to prevent overflow
-img {width: 100%;}
+// @@@@@ 4. IMAGE WIDTH
+img { width: 100%; } // prevents overflow
 
 
 
-// @@@@@ Font styles
+// @@@@@ 5. TYPOGRAPHY
 h1,h2,h3,h4,h5,h6 {
     font-family: $headingFont;
     text-transform: uppercase;
@@ -62,20 +83,29 @@ h4 {
 
 p {
     font-family: $contentFont;
-    font-size: 0.6rem;
-    line-height: 0.95rem;
+    font-size: 0.7rem;
+    line-height: 1.1rem;
     letter-spacing: 0.05rem;
 }
 
 
 
-// @@@@@ Button styles
+// @@@@@ 6. UL STYLE CLEARANCE
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+
+// @@@@@ 7. BUTTON
 .button, input[type="submit"] {
     padding: 0.35rem 0.5rem 0.3rem;
     display: inline-block;
     font-family: $headingFont;
-    font-size: 0.6rem;
-    line-height: 0.95rem;
+    font-size: 0.7rem;
+    line-height: 1.1rem;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -90,7 +120,7 @@ p {
 
 
 
-// @@@@@ Form styles
+// @@@@@ 8. FORM
 input, textarea { width: 100%; }
 
 // Removes default styling and adds custom styling
@@ -130,16 +160,7 @@ textarea {
 
 
 
-// @@@@@ ul, li styles
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-
-
-// @@@@@ Skip to main content button styles
+// @@@@@ 9. SKIP TO MAIN
 .skipToMain {
     position: absolute;
     z-index: 5;
@@ -151,7 +172,7 @@ ul {
 
 
 
-// @@@@@ Header styles
+// @@@@@ 10. HEADER
 header {
     min-height: 100vh;
     position: relative;
@@ -176,8 +197,8 @@ header a {
 .mainNav li {
     font-family: $contentFont;
     font-weight: 700;
-    font-size: 0.6rem;
-    line-height: 0.85rem;
+    font-size: 0.7rem;
+    line-height: 1rem;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
 }
@@ -200,7 +221,8 @@ header a {
 
 
 
-// @@@@@ Hamburger menu styles & animations (applies up to 768px viewport width)
+// @@@@@ 11. HAMBURGER MENU
+// Styles & animations apply up to 768px viewport width
 
 // Visually hides navigation menu but keeps it accessible
 .mainNav ul {
@@ -280,7 +302,7 @@ header a {
 
 
 
-// @@@@@ Footer styles
+// @@@@@ 12. FOOTER
 footer {
     padding: 0.25rem 0;
     background: $fontColor;
@@ -293,7 +315,7 @@ footer p {
 
 
 
-// @@@@@ Breakpoint for larger phones
+// @@@@@ 13. 480PX BREAKPOINT - LARGER PHONES AND UP
 @media (min-width: 480px) {
     h2 {
         font-size: 2rem;
@@ -303,10 +325,19 @@ footer p {
 
 
 
-// @@@@@ Breakpoint for tablets and up
+// @@@@@ 14. 768PX BREAKPOINT - TABLETS AND UP
 @media (min-width: 768px) {
     // Base font increase
     html { font-size: 150%; }
+
+    // Slight font decrease for p elements and top navigation menu
+    p,
+    .button, input[type="submit"],
+    .mainNav li {
+        font-size: 0.6rem;
+    }
+    p, .button, input[type="submit"] { line-height: 0.95rem; }
+    .mainNav li { line-height: 0.85rem; }
 
     // Add flex and have logo and main nav appear side by side
     .mainNavContainer { display: flex; }
@@ -340,7 +371,7 @@ footer p {
 
 
 
-// @@@@@ Breakpoint for desktops
+// @@@@@ 15. 1280PX BREAKPOINT - DESKTOPS AND UP
 @media (min-width: 1280px) {
     // Base font increase
     html { font-size: 175%; }
@@ -348,7 +379,7 @@ footer p {
 
 
 
-// Import page partials
+// @@@@@ 16. PAGE PARTIALS IMPORT
 @import "partials/_index.scss";
 @import "partials/_blog.scss";
 @import "partials/_contact.scss";

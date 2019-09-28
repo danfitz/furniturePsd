@@ -8,3 +8,4 @@ To accommodate responsiveness, I then had to *invent* the mobile and tablet view
 
 * HTML
 * CSS and Sass
+* Semantic HTML and accessibility included too
